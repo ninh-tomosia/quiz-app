@@ -1,0 +1,43 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class=user-information>
+      <div class="menu-user">
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+      <div class="show-infor-user">
+        <div class="show-user-btn">
+          <%= link_to  "Edit", edit_user_registration_path, class: "btn btn-outline-primary" %>
+        </div>
+        <div class="show-infor">
+          <div class="show-group-infor">
+            <% if current_user.image? %>
+              <%= image_tag  current_user.image.url(:thumb), width: "100px" %>
+            <% else %>
+              <%= image_tag  "none-avt.png", width: "100px" %>
+            <% end %>
+          </div>
+          <div class="show-group-infor">
+            <label>Name: </label>
+            <span><%= @user.name %></span>
+          </div>
+          <div class="show-group-infor">
+            <label>Email: </label>
+            <span><%= @user.email %></span>
+          </div>
+          <div class="show-group-infor">
+            <label>Phone: </label>
+            <span><%= @user.phone %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>

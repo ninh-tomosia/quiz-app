@@ -1,0 +1,312 @@
+body, html{
+  background: #DDD;
+}
+.navbar{
+  position: sticky;
+}
+.head-none-value{
+  height: 55px;
+}
+.content{
+  width: 100%;
+  padding: 20px;
+  min-height: 570px;
+}
+.banner{
+  padding-bottom: 20px;
+}
+.item{
+  width: 19%;
+  margin: 5px;
+  border: .5px solid rgb(3, 34, 0);
+  padding: 10px 20px;
+  display: block;
+  /* max-height: 250px; */
+  border-radius: 10px;
+  background: rgb(255, 252, 214);
+}
+.item .img-item{
+  width: 100px;
+  margin: 5px auto;
+}
+.item .title-ticket{
+  width: 100%;
+  height: 80px;
+  display: block;
+  padding: 5px 0px;
+}
+.item .btn-ticket{
+  display: flex;
+  justify-content: center;
+}
+
+/* footer */
+.footer{
+  width: 100%;
+  background: #AAA;
+  padding: 0;
+  margin: 0;
+}
+.footer .coppy {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Row ticket */
+.row-count-all {
+  width: 100%;
+  border-bottom: .5px solid #AAA;
+  margin-bottom: 25px;
+}
+.row-count-all p{
+  padding: 0;
+  margin: 0;
+}
+.row-ticket{
+  width: 50%;
+  display: flex;
+  border-bottom: .5px solid #AAA;
+  padding: 10px;
+}
+.row-img-ticket{
+  align-self: center;
+  width:100px;
+}
+.row-link-ticket{
+  margin-left: 10px;
+  width: 100%;
+  height: 55px;
+}
+.btn-ounline-ticket{
+  background: none;
+  border: .5px solid rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+}
+.btn-ounline-ticket:hover{
+  background: rgb(255, 0, 0);
+  color: #fff;
+  border: .5px solid rgb(0, 19, 1);
+}
+
+// form login
+.form-login{
+  width: 400px;
+  margin: 0 auto;
+}
+.form-login h2{
+  text-align: center;
+  color: rgb(2, 9, 75);
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.form-login .actions{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// css error
+#error_explanation h6, li{
+  color: red; 
+}
+#msg-errors{
+  width: 100%;
+  text-align: center;
+}
+#msg-errors .notice, .alert{
+  color: red;
+}
+// current users
+.link-current-user{
+  padding: 0px 10px;
+  color: blue;
+  cursor: pointer;
+}
+// show user information
+.user-information {
+  display: flex;
+}
+.user-information .menu-user{
+  flex: 1 0 20%;
+  min-height: 530px;
+}
+.user-information .show-infor-user{
+  flex: 1 0 80%;
+  padding: 10px 20px;
+  background: #CCC;
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+.show-infor-user .show-user-btn{
+  flex: 1 0 30%;
+  padding: 4px;
+  // display: flex;
+  // justify-content: space-evenly;
+}
+.show-infor-user .show-infor{
+  flex: 1 0 70%;
+}
+.show-group-infor{
+  width: 100%;
+  padding: 4px 0;
+}
+.show-group-infor img{
+  margin-bottom: 25px;
+}
+.show-group-infor label, span{
+  margin: 0;
+  padding: 0;
+  line-height: 24px;  
+}
+.show-group-infor label{
+  width: 10%;
+  font-weight: 600;
+}
+.show-group-infor span{
+  width: 90%;
+}
+.show-infor-user .form-edit-user{
+  width: 100%;
+}
+.form-group label{
+  width: 100%;
+}
+.form-group .title-check-box{
+  width: auto;
+}
+.form-custom-edit{
+  width: 500px;
+}
+.row-btn-edit{
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+}
+.row-btn-edit .title-btn-edit{
+  width: auto;
+  line-height: 38px;
+}
+
+// upload file
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #1AA059;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 4px dashed #1FB264;
+  position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #1FB264;
+  border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #15824B;
+  padding: 60px 0;
+  font-size: 20px;
+}
+
+.file-upload-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.remove-image {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+// user link
+.user-infor-link{
+  display: flex;
+  padding-left: 20px; 
+}
+.user-infor-link img:hover{
+  cursor: pointer;
+}
+.user-infor-link img{
+  border-radius: 50%;
+}
+.user-infor-link li{
+  line-height: 50px;
+}
