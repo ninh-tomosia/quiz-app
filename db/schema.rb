@@ -10,10 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_093316) do
+ActiveRecord::Schema.define(version: 2020_08_23_064154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "option_value"
+    t.integer "question_id"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name_category", default: "", null: false
+    t.string "image", default: ""
+    t.integer "user_id"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "quesions", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.integer "ticket_id"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subtickets", force: :cascade do |t|
+    t.integer "subticket_code"
+    t.integer "ticket_id"
+    t.integer "user_id"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "name_ticket", default: "", null: false
+    t.datetime "time_quiz"
+    t.datetime "date_start"
+    t.datetime "date_finish"
+    t.string "code_quiz", default: ""
+    t.datetime "delete_at"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_tickets", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ticket_id"
+    t.float "total_score", default: 0.0
+    t.datetime "time_complete"
+    t.datetime "delete_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false

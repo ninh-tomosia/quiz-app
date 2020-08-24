@@ -1,0 +1,2 @@
+class Subticket < ApplicationRecord
+end

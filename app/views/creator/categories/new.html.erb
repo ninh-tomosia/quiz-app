@@ -1,0 +1,48 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      <div class="show-infor-user">
+        <div class="form-login form-custom-edit">
+          <%= form_for( @category, multipart: true ) do |f| %>
+
+            <div class="form-group">
+              <%= f.label :name_category %>
+              <%= f.text_field :name_category, class: "form-control", placeholder: "Enter your name category" %>
+            </div>
+
+            <div class="form-group">
+                
+                <div class="file-upload">
+                  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                  <div class="image-upload-wrap">
+                    <%= f.file_field :image, onchange: "readURL(this);", accept: "image/*", class: "file-upload-input" %>
+                    <div class="drag-text">
+                      <h3>Drag and drop a file or select add Image</h3>
+                    </div>
+                  </div>
+                  <div class="file-upload-content">
+                    <img class="file-upload-image" src="#" alt="your image" />
+                    <div class="image-title-wrap">
+                      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="options">
+              <%= link_to  "Back", :back, class: "btn btn-dark" %>
+              <%= f.submit "Add Category", class: "btn btn-primary" %>
+            </div>
+          
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>

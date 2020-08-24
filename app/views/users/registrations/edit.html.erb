@@ -3,13 +3,7 @@
   <div class="content">
     <div class=user-information>
       <div class="menu-user">
-        <ul class="list-group">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <%= render  "layouts/user-menu" %>
       </div>
       <div class="show-infor-user">
         <div class="show-group-infor">
@@ -92,40 +86,3 @@
   </div>
 </div>
 <%= render  "layouts/footer" %>
-
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
-<script>
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-
-      var reader = new FileReader();
-
-      reader.onload = function(e) {
-        $('.image-upload-wrap').hide();
-
-        $('.file-upload-image').attr('src', e.target.result);
-        $('.file-upload-content').show();
-
-        $('.image-title').html(input.files[0].name);
-      };
-
-      reader.readAsDataURL(input.files[0]);
-
-    } else {
-      removeUpload();
-    }
-  }
-
-  function removeUpload() {
-    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-    $('.file-upload-content').hide();
-    $('.image-upload-wrap').show();
-  }
-  $('.image-upload-wrap').bind('dragover', function () {
-    $('.image-upload-wrap').addClass('image-dropping');
-  });
-  $('.image-upload-wrap').bind('dragleave', function () {
-    $('.image-upload-wrap').removeClass('image-dropping');
-  });
-</script>
