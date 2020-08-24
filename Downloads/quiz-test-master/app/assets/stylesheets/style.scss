@@ -1,0 +1,129 @@
+body, html{
+    background: #DDD;
+}
+.msg-errors{
+    width: 100%;
+    padding: 10px 0px;
+    text-align: center;
+}
+.notice, .alert{
+    color: rgb(233, 75, 1);
+    padding: 0;
+    margin: 0;
+}
+.navbar{
+    position: sticky;
+}
+.infor-login{
+    padding-left: 10px;
+}
+.infor-login:hover{
+    cursor: pointer;
+}
+.content{
+    width: 100%;
+    padding: 20px;
+    min-height: 570px;
+}
+.banner{
+    padding-bottom: 20px;
+}
+.item{
+    width: 19%;
+    margin: 5px;
+    border: .5px solid rgb(3, 34, 0);
+    padding: 10px 20px;
+    display: block;
+    /* max-height: 250px; */
+    border-radius: 10px;
+    background: rgb(255, 252, 214);
+}
+.item .img-item{
+    width: 100px;
+    margin: 5px auto;
+}
+.item .title-ticket{
+    width: 100%;
+    height: 80px;
+    display: block;
+    padding: 5px 0px;
+}
+.item .btn-ticket{
+    display: flex;
+    justify-content: center;
+}
+
+/* footer */
+.footer{
+    width: 100%;
+    background: #AAA;
+    padding: 0;
+    margin: 0;
+}
+.footer .coppy {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Row ticket */
+.row-count-all {
+    width: 100%;
+    border-bottom: .5px solid #AAA;
+    margin-bottom: 25px;
+}
+.row-count-all p{
+    padding: 0;
+    margin: 0;
+}
+.row-ticket{
+    width: 50%;
+    display: flex;
+    border-bottom: .5px solid #AAA;
+    padding: 10px;
+}
+.row-img-ticket{
+    align-self: center;
+    width:100px;
+}
+.row-link-ticket{
+    margin-left: 10px;
+    width: 100%;
+    height: 55px;
+}
+.btn-ounline-ticket{
+    background: none;
+    border: .5px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+}
+.btn-ounline-ticket:hover{
+    background: rgb(255, 0, 0);
+    color: #fff;
+    border: .5px solid rgb(0, 19, 1);
+}
+
+// form login
+.content #form-login{
+    width: 400px;
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+#form-login h2{
+    text-align: center;
+}
+#error_explanation h6{
+    color: rgb(228, 82, 37);
+}
+#error_explanation ul li{
+    list-style: none;
+    color: tomato;
+}
+.actions{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.edit{
+    text-align:center;
+    padding-top: 30px;
+}

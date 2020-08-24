@@ -1,0 +1,2 @@
+class UsersTicket < ApplicationRecord
+end

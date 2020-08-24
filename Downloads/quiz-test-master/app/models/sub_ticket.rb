@@ -1,0 +1,2 @@
+class SubTicket < ApplicationRecord
+end
