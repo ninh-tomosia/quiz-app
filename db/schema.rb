@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_064154) do
+ActiveRecord::Schema.define(version: 2020_08_27_044453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_064154) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quesions", force: :cascade do |t|
+  create_table "questions", force: :cascade do |t|
     t.string "question"
     t.string "answer"
     t.integer "ticket_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_064154) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "name_ticket", default: "", null: false
-    t.datetime "time_quiz"
+    t.integer "time_quiz", null: false
     t.datetime "date_start"
     t.datetime "date_finish"
     t.string "code_quiz", default: ""

@@ -1,15 +1,25 @@
 <tr>
-  
   <td>
     <%= ticket.name_ticket %>
+  </td> 
+  <td>
+    <%= ticket.time_quiz %><small>(min)</small>
   </td>
-    
+  <td>
+    <%= ticket.date_start %>
+  </td>
+  <td>
+    <%= ticket.date_finish %>
+  </td>
+  <td>
+    <%= ticket.code_quiz %>
+  </td>
   <td>
     <%= ticket.delete_at %>
   </td>
-
   <td>
-    <%= link_to  "Edit", edit_ticket_path(ticket) %> | 
-    <%= link_to  "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to  "<i class=\"fa fa-file-alt\"></i>".html_safe, ticket_path(ticket) %> |
+    <a href="<%= edit_ticket_path(ticket) %>"><i class="fa fa-pencil-alt"></i></a> | 
+    <%= link_to "<i class=\"fa fa-trash-alt\"></i>".html_safe, ticket_path(ticket), method: :delete, data: { confirm: "Are you sure?" } %>
   </td>
 </tr>

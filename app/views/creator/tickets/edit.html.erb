@@ -7,8 +7,10 @@
       </div>
       <div class="show-infor-user">
         <div class="form-login form-custom-edit">
-          <%= form_for( @ticket, multipart: true ) do |f| %>
-            <h2>New ticket</h2>
+
+          <h2>Edit ticket</h2>
+          <%= form_for( @ticket, multipart: true, method: :put ) do |f| %>
+            
             <div class="form-group">
               <%= f.label :category %>
               <%= collection_select :ticket, :category_id, Category.all, :id, :name_category, prompt: "-- Please select category --" %>
@@ -27,11 +29,11 @@
             <div class="form-group">
               <%= f.label "Time quiz (minutes)" %>
               <label><i>(min: 15 minutes -> max: 300 minutes)</i></label>
-              <%= f.number_field :time_quiz, min: 15, max: 300, value: 15, class: "form-control", placeholder: "Enter your time quiz" %>
+              <%= f.number_field :time_quiz, min: 15, max: 300, class: "form-control", placeholder: "Enter your time quiz" %>
             </div>
             <div class="form-group">
               <%= f.label "Start date time competition" %>
-              <%= f.datetime_field :date_start, value: "", class: "form-control", placeholder: "Enter your date time start quiz" %>
+              <%= f.datetime_field :date_start, class: "form-control", placeholder: "Enter your date time start quiz" %>
             </div>
 
             <div class="form-group">
@@ -39,14 +41,14 @@
               <%= f.datetime_field :date_finish, class: "form-control", placeholder: "Enter your date time finish quiz" %>
             </div>
 
-            <div class="form-group">
+            <!--<div class="form-group">
               <%= f.label :add_file %>
               <%= f.file_field :file, accept: "text/plain" %>
-            </div>
+            </div>-->
 
             <div class="options">
               <%= link_to  "Back", :back, class: "btn btn-dark" %>
-              <%= f.submit "Add Ticket", class: "btn btn-primary" %>
+              <%= f.submit "Update Ticket", class: "btn btn-primary" %>
             </div>
           
           <% end %>

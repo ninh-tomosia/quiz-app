@@ -6,16 +6,19 @@
         <%= render  "layouts/user-menu" %>
       </div>
       <div class="show-infor-user">
-        <div class="show-user-btn">
-          <%= link_to  "Add ticket", new_ticket_path, class: "btn btn-outline-primary" %>
+        <div class="show-ticket-btn">
+          <%= link_to  "<small><i class=\"fa fa-plus\"></i> Ticket</small>".html_safe, new_ticket_path, class: "btn btn-outline-primary" %>
         </div>
-        <div class="show-infor">
+        <div class="show-infor-ticket">
           <table class="table-show">
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Image</th>
-                <th>Deleted at</th>
+                <th>Time quiz</th>
+                <th>Start competition</th>
+                <th>End competition</th>
+                <th>Code</th>
+                <th>Deleted</th>
                 <th></th>
               </tr>
             </thead>

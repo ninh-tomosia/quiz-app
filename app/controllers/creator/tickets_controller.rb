@@ -8,16 +8,70 @@ class Creator::TicketsController < ApplicationController
   end
 
   def create
-    read_file(get_file[:file])
+    begin  
+      ticket = Ticket.new(ticket_params)
+      ticket.user_id = current_user.id
+      if ticket.save
+        if get_file[:file]
+          data = read_file(get_file[:file])
 
-    binding.pry
+          data.each do |item|
+            ques        = item[:question]
+            ans_correct = item[:correct]
+            answers     = item[:answer]
+            question    = Question.new #(:question ques, :answer ans_correct, :ticket_id ticket.id)
+            question.question  = ques
+            question.answer    = ans_correct
+            question.ticket_id = ticket.id
+            if question.save
+              answer = Answer.new #(:option_value answers, :question_id question.id)
+              answer.option_value = answers
+              answer.question_id  = question.id
+              answer.save
+            end
+          end
+          redirect_to tickets_path
+
+        end
+      else
+        redirect_to new_ticket_path
+      end
+    rescue => exception
+      redirect_to new_ticket_path
+    end
   end
 
+  def show
+    @tickets = Ticket.find(params[:id]).questions
+  end
+
+  def edit 
+    @ticket = Ticket.find(params[:id])
+  end
+
+  def update
+    ticket = Ticket.find(params[:id])
+    if ticket.update(ticket_params)
+      @tickets = Ticket.where(user_id: current_user.id, delete_at: nil)
+      render :index
+    else
+      @ticket = Ticket.find(params[:id])
+      render :edit
+    end
+  end
+
+  def destroy
+    ticket = Ticket.find(params[:id])
+    ticket.delete_at = Time.now
+    ticket.save
+    @tickets = Ticket.where(user_id: current_user.id, delete_at: nil)
+    render :index
+  end
 
   private
 
   def ticket_params
-    params.require(:ticket).permit(:name_ticket, :category_id, :code_quiz, :time_quiz)
+    params.require(:ticket).permit(:name_ticket, :category_id, :code_quiz, :time_quiz, :date_start, :date_finish)
   end
 
   def get_file

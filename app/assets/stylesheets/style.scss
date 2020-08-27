@@ -329,6 +329,7 @@ body, html{
   width: 100%;
   padding: 8px;
   outline: none;
+  color: rgb(90, 88, 88);
 }
 
 $select-border-color: #ccc;
@@ -382,3 +383,28 @@ $select-focus-color: green;
       outline: 0;
     }
   }
+
+// ticket show
+.show-infor-user .show-infor-ticket{
+  flex: 1 0 90%;
+}
+.show-infor-user .show-ticket-btn{
+  flex: 1 0 10%;
+}
+.ticket-show-ans-ques{
+  width: 100%;
+  height: 550px;
+  overflow: scroll;
+}
+.ticket-show-ans-ques label{
+  font-weight: 700;
+}
+.answer-row {
+  display: flex;
+}
+.option-value-ans{
+  flex: 1 0 80%;
+}
+.link-ans{
+  flex: 1 0 20%;
+}
