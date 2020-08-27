@@ -176,6 +176,9 @@ body, html{
 .form-group .title-check-box{
   width: auto;
 }
+.form-group .title-check-box:hover{
+  cursor: pointer;
+}
 .form-custom-edit{
   width: 500px;
 }
@@ -322,3 +325,60 @@ body, html{
 .table-show img{
   width: 50px;
 }
+#ticket_category_id{
+  width: 100%;
+  padding: 8px;
+  outline: none;
+}
+
+$select-border-color: #ccc;
+$select-focus-color: green;
+ 
+#ticket_category_id {
+ 
+    cursor: pointer;
+    /* styling */
+    background-color: white;
+    border: 1px solid $select-border-color;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+ 
+    /* reset */
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+ 
+    background-image: linear-gradient(45deg, transparent 50%, $select-border-color 50%),
+    linear-gradient(135deg, $select-border-color 50%, transparent 50%),
+    linear-gradient(to right, $select-border-color, $select-border-color);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+ 
+    /* Very imp: hide arrow in IE */
+    &::-ms-expand {
+      display: none;
+    }
+ 
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: none;
+    }
+ 
+    &:active {
+      background-image: linear-gradient(45deg, $select-focus-color 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, $select-focus-color 50%), linear-gradient(to right, $select-focus-color, $select-focus-color);
+      background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+      background-size: 5px 5px, 5px 5px, 1px 1.5em;
+      background-repeat: no-repeat;
+      border-color: $select-focus-color;
+      outline: 0;
+    }
+  }

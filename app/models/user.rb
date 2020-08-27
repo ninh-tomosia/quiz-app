@@ -10,4 +10,5 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :categories
+  has_many :tickets
 end

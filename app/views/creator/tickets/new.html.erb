@@ -1,0 +1,49 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      <div class="show-infor-user">
+        <div class="form-login form-custom-edit">
+          <%= form_for( @ticket, multipart: true ) do |f| %>
+            
+            <div class="form-group">
+              <%= f.label :category %>
+              <%= collection_select :ticket, :category_id, Category.all, :id, :name_category, prompt: "-- Please select category --" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :name_ticket %>
+              <%= f.text_field :name_ticket, class: "form-control", placeholder: "Enter your name ticket" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :code_quiz %>
+              <%= f.text_field :code_quiz, class: "form-control", placeholder: "Enter your code quiz" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label "Time quiz (minute)" %>
+              
+              <%= f.text_field :time_quiz, class: "form-control", placeholder: "Enter your time quiz" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :add_file %>
+              <%= f.file_field :file, accept: "text/plain" %>
+            </div>
+
+            <div class="options">
+              <%= link_to  "Back", :back, class: "btn btn-dark" %>
+              <%= f.submit "Add Ticket", class: "btn btn-primary" %>
+            </div>
+          
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>
