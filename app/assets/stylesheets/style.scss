@@ -390,6 +390,7 @@ $select-focus-color: green;
 }
 .show-infor-user .show-ticket-btn{
   flex: 1 0 10%;
+  padding: 0 20px;
 }
 .ticket-show-ans-ques{
   width: 100%;
@@ -407,4 +408,7 @@ $select-focus-color: green;
 }
 .link-ans{
   flex: 1 0 20%;
+}
+.font-size-12{
+  font-size: 12px;
 }

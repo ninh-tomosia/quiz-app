@@ -6,27 +6,25 @@
         <%= render  "layouts/user-menu" %>
       </div>
       <div class="show-infor-user">
-        <div class="show-ticket-btn">
-          <%= link_to  "<small><i class=\"fa fa-plus\"></i> Ticket</small>".html_safe, new_ticket_path, class: "btn btn-outline-primary" %>
-          <br><br>
+
+        <div class="form-group">
           <%= link_to  "Back", :back, class: "btn btn-dark" %>
         </div>
         <div class="show-infor-ticket">
-        
+            <h3>
+              <%= Ticket.find(@subtickets.first.ticket_id).name_ticket %>
+            </h3>
+          
           <table class="table-show">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Time quiz</th>
-                <th>Start competition</th>
-                <th>End competition</th>
-                <th>Code</th>
+                <th>Subticket code</th>
                 <th>Deleted</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <%= render partial: "list_tickets", collection: @tickets, as: "ticket"  %>
+              <%= render partial: "list_subticket", collection: @subtickets, as: "subticket"  %>
             </tbody>
           </table>
         </div>

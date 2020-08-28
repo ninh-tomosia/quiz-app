@@ -1,4 +1,6 @@
 class Creator::TicketsController < ApplicationController
+  before_action :authenticate_user!
+  # shuffle
   def index
     @tickets = Ticket.where(user_id: current_user.id, delete_at: nil)
   end

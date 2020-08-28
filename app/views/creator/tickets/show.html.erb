@@ -5,7 +5,17 @@
       <div class="menu-user">
         <%= render  "layouts/user-menu" %>
       </div>
+      
       <div class="show-infor-user">
+        <div class="show-ticket-btn">
+          <%= link_to  "Back", :back, class: "btn btn-dark" %>
+          <br><br>
+          <%= link_to  "<i class=\"fa fa-plus\"></i><small>Subticket</small>".html_safe, new_subticket_path(:code => @tickets.first.ticket_id), class: "btn btn-primary font-size-12" %> 
+          <br><br>
+          <%= link_to  "<i class=\"fa fa-file-alt\"></i><small>Subticket</small>".html_safe, subtickets_path(:code => @tickets.first.ticket_id), class: "btn btn-primary font-size-12" %> 
+
+        </div>
+
         <div class="ticket-show-ans-ques">
           <%= render partial: "form_ticket_ans_ques", collection: @tickets, as: "question" %>
         </div>
