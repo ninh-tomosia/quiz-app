@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= subticket.subticket_code %>
+  </td>
+  <td>
+    <%= subticket.delete_at %>
+  </td>
+  <td>
+  <%= subticket.delete_at %>
+  </td>
+  <td> 
+    <%= link_to "<i class=\"fa fa-file-alt\"></i>".html_safe, subticket_path(subticket) %> | 
+    <%= link_to "<i class=\"fa fa-trash-alt\"></i>".html_safe, subticket_path(subticket), method: :delete, data: { confirm: "Are you sure?" } %> |
+    <%= link_to "<i class=\"fas fa-download\"></i>".html_safe, subtickets_path(format: 'pdf') %>
+  </td>
+</tr>

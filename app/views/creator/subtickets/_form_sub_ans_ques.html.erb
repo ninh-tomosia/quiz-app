@@ -1,0 +1,21 @@
+<div class="form-group">
+  <div class="answer-row">
+    <div class="option-value-ans">
+      <label>Question: 
+        <%= question.question %>
+      </label>
+    </div>
+  </div>
+</div>
+<% answers = Question.find(question.id).answers 
+    answers.each do |item|
+      ((item.option_value.delete('[]"').split(',')).shuffle).each_with_index do |value, index|
+%>
+        <div class="form-group"> 
+          <%= (index + 1).to_s %>)
+          <%= value %>
+        </div>
+<% 
+      end
+    end 
+%>

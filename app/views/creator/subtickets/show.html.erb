@@ -1,0 +1,20 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      
+      <div class="show-infor-user">
+        <div class="form-group">
+          <%= link_to  "Back", :back, class: "btn btn-dark" %>              
+        </div>
+        <div class="ticket-show-ans-ques">
+          <%= render partial: "form_sub_ans_ques", collection: @subtickets, as: "question" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>

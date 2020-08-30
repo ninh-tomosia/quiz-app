@@ -1,0 +1,25 @@
+<div class="form-group">
+  <div class="answer-row">
+    <div class="option-value-ans">
+      <label>Question: 
+        <%= question.question %>
+      </label>
+    </div>
+    <div class="link-ans">
+      <%= link_to  "<i class=\"fa fa-pencil-alt\"></i>".html_safe, edit_question_path(question) %> |
+      <%= link_to  "<i class=\"fa fa-trash-alt\"></i>".html_safe, "" %>
+    </div>
+  </div>
+</div>
+<% answers = Question.find(question.id).answers 
+    answers.each do |item|
+      (item.option_value.delete('[]"').split(',')).each_with_index do |value, index|
+%>
+        <div class="form-group"> 
+          <%= (index + 1).to_s %>)
+          <%= value %>
+        </div>
+<% 
+      end
+    end 
+%>
