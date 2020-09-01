@@ -11,7 +11,7 @@
             <h2>New ticket</h2>
             <div class="form-group">
               <%= f.label :category %>
-              <%= collection_select :ticket, :category_id, Category.all, :id, :name_category, prompt: "-- Please select category --" %>
+              <%= collection_select :ticket, :category_id, Category.all.where(delete_at: nil), :id, :name_category, prompt: "-- Please select category --" %>
             </div>
 
             <div class="form-group">

@@ -60,3 +60,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem "letter_opener", :group => :development
+gem "chartkick"
+gem 'stripe'
+gem 'kaminari'       # gíup phân trang
+gem 'ransack'     # tạo form tìm kiếm
+gem 'bootstrap-kaminari-views' # giao diện đẹp cho phân trang

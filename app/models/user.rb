@@ -11,4 +11,6 @@ class User < ApplicationRecord
 
   has_many :categories
   has_many :tickets
+  has_many :user_tickets
+  has_many :tickets, through: :user_tickets
 end

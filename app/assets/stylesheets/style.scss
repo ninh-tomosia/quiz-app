@@ -16,29 +16,101 @@ body, html{
   padding-bottom: 20px;
 }
 .item{
-  width: 19%;
+  width: 24%;
   margin: 5px;
-  border: .5px solid rgb(3, 34, 0);
-  padding: 10px 20px;
+  border: .5px solid rgb(171, 172, 171);
   display: block;
-  /* max-height: 250px; */
-  border-radius: 10px;
   background: rgb(255, 252, 214);
+  cursor: pointer;
 }
 .item .img-item{
-  width: 100px;
-  margin: 5px auto;
+  width: 100%;
 }
+
+.rate-navbar{
+  width: 20.2%;
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
+
+.rate-navbar ul li{
+  list-style: none;
+  text-align: right;
+  color: #000;
+}
+.rate-navbar ul li label{
+  margin: 4px 8px;
+  padding: 4px 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.rate-navbar .dropdown-menu{
+  width: 265px;
+  margin-left: -235px;
+  height: 227px;
+  margin-top: 385px;
+  opacity: .7;
+  padding-top: 50px;
+}
+.rate-navbar .dropdown-menu a{
+  color: rgb(255, 81, 0);
+  font-size: 16px;
+  text-align: center;
+}
+.rate-navbar .dropdown-menu a:hover{
+  font-size: 18px;
+}
+
+
 .item .title-ticket{
   width: 100%;
-  height: 80px;
+  min-height: 30px;
   display: block;
-  padding: 5px 0px;
+  padding: 5px 10px;
 }
-.item .btn-ticket{
+.item .rate-ticket{
+  margin-bottom: 10px;
+
+}
+.item .rate-ticket .line-ticket{
+  height: 2px;
+  background: rgb(0, 183, 255);
+  width: 100%;
+}
+.item .rate-ticket .rate-item-ticket{
+  line-height: 30px;
   display: flex;
-  justify-content: center;
+  // padding: 2px 4px;
+  justify-content: space-evenly;
 }
+.item .rate-ticket ul{
+  margin: 0;
+}
+.item .rate-ticket ul li{
+  display: inline;
+  list-style: none;
+  color: rgb(255, 187, 0);
+  line-height: 40px;
+}
+.item .rate-ticket span{
+  font-size: 14px;
+  line-height: 40px;
+}
+.item .rate-ticket .rate-ticket-text{
+  text-align: right;
+  padding: 0 8px;
+}
+
+.link-ticket{
+  color: #000;
+}
+.link-ticket:hover{
+  color: #000;
+  text-decoration: none;
+}
+
 
 /* footer */
 .footer{
@@ -411,4 +483,28 @@ $select-focus-color: green;
 }
 .font-size-12{
   font-size: 12px;
+}
+
+// history
+.group-item-history{
+  width: 100%;
+  padding: 8px 16px;
+  // border-bottom: .5px solid #AAA;
+  margin-bottom: 20px;
+}
+.group-item-history .title-history{
+  width: 100%;
+  text-align: center;
+  border-bottom: .5px solid #AAA;
+  padding: 8px 16px;
+}
+.group-item-history .content-history{
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: .5px solid #AAA;
+}
+.group-item-history .content-history .row-content-history{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
