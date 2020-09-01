@@ -1,22 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset ="UTF-8">
+</head>
+<body>
+<h2> Đề kiểm tra 1 tiết </h2>
+<% @questions.each do |sub|%>
+    <tr>
+    <td><%= sub.question %></td>
+    <td><%=sub.answer %></td>
+    <br/>
+    </tr>
+<%end%>
+</body>
+</html>
 
-<div class="form-group">
-<div class="answer-row">
-  <div class="option-value-ans">
-    <label>Question: 
-      <%= questions.question %>
-    </label>
-  </div>
-</div>
-</div>
-<% answers = Question.find(question.id).answers 
-  answers.each do |item|
-    ((item.option_value.delete('[]"').split(',')).shuffle).each_with_index do |value, index|
-%>
-      <div class="form-group"> 
-        <%= (index + 1).to_s %>)
-        <%= value %>
-      </div>
-<% 
-    end
-  end 
-%>
+

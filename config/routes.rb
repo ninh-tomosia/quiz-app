@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :tickets
     resources :questions
     resources :subtickets
+    get '/subtickets/download', to: "subtickets#download"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end

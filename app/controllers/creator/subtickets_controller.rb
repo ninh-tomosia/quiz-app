@@ -17,6 +17,9 @@ class Creator::SubticketsController < ApplicationController
       end 
     end
   end
+
+  # def reporte
+  # end
   
   def new
     ticket_id = Ticket.find(params[:code]).id
@@ -34,6 +37,9 @@ class Creator::SubticketsController < ApplicationController
      
   end
 
+  def download
+    render
+  end
 
   def create
     for i in 0..(sub_params[:subticket_code].to_i) do
