@@ -1,21 +1,23 @@
-require "prawn"
+
 class Creator::SubticketsController < ApplicationController
   before_action :authenticate_user!
   respond_to :docx
 
   def index
-   #  @subtickets = Ticket.find(params[:code]).subtickets
-    @subtickets = Subticket.all
+   # @subtickets = Ticket.find(params[:code]).subtickets
+  
+   @subtickets = Subticket.all
+    @questions = Question.all
     respond_to do |format|
       format.html
-      format.pdf do 
-        pdf = SubticketPdf.new(@subtickets)
-        send_data pdf.render,filename:'subtickets.pdf',type: 'application/pdf',disposition:"inline"
-      end
+      format.json
+      begin 
+      format.pdf {render template: 'creator/subtickets/reporte', pdf: 'Reporte'}
+      rescue Exception => e
+      end 
     end
-
   end
-
+  
   def new
     ticket_id = Ticket.find(params[:code]).id
     @subticket = Subticket.new
@@ -25,10 +27,10 @@ class Creator::SubticketsController < ApplicationController
   end
 
   def show
-    sub_ticket  = Subticket.find(params[:id])
+   sub_ticket  = Subticket.find(params[:id])
     tickets = Ticket.find(sub_ticket[:ticket_id]).questions
     @subtickets = random_question(tickets)
-    
+    @subticket = Subticket.new
      
   end
 

@@ -61,5 +61,5 @@ gem 'mini_magick'
 gem 'devise'
 gem "letter_opener", :group => :development
 # gem download file
-gem 'prawn','~> 1.2.1'
-gem 'prawn-table','~> 0.1.0'
+gem 'wicked_pdf' 
+gem 'wkhtmltopdf-binary'
