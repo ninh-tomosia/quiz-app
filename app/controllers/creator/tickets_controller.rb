@@ -10,6 +10,7 @@ class Creator::TicketsController < ApplicationController
   end
 
   def create
+    # binding.pry
     begin  
       ticket = Ticket.new(ticket_params)
       ticket.user_id = current_user.id
@@ -25,10 +26,12 @@ class Creator::TicketsController < ApplicationController
             question.question  = ques
             question.answer    = ans_correct
             question.ticket_id = ticket.id
+            # binding.pry
             if question.save
               answer = Answer.new #(:option_value answers, :question_id question.id)
               answer.option_value = answers
               answer.question_id  = question.id
+              # binding.pry
               answer.save
             end
           end
@@ -45,6 +48,8 @@ class Creator::TicketsController < ApplicationController
 
   def show
     @tickets = Ticket.find(params[:id]).questions
+   #@tickets = Ticket.questions.find(params[:id])
+
   end
 
   def edit 
@@ -121,3 +126,6 @@ class Creator::TicketsController < ApplicationController
     array_data
   end
 end
+# khong cos ticket id la 1 2 3 4 maf sao taoj duoc cau hoi cho ticket 1 2 3 4 hay vay
+# no loi la do no k tim thay voi chua has many trong model
+# co ma sao nos khoong nhan

@@ -10,11 +10,11 @@
         <div class="form-group">
           <%= link_to  "Back", :back, class: "btn btn-dark" %>
         </div>
+        
         <div class="show-infor-ticket">
             <h3>
-              <%= Ticket.find(@subtickets.first.ticket_id).name_ticket %>
+              <%= Ticket.find(@subtickets.first.ticket_id).name_ticket if @subtickets.first != nil %>
             </h3>
-          
           <table class="table-show">
             <thead>
               <tr>
@@ -28,6 +28,8 @@
             </tbody>
           </table>
         </div>
+        
+      
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ class Creator::SubticketsController < ApplicationController
   respond_to :docx
 
   def index
-   # @subtickets = Ticket.find(params[:code]).subtickets
+  #  @subtickets = Ticket.find(params[:code]).subtickets
   
    @subtickets = Subticket.all
     @questions = Question.all
@@ -20,7 +20,13 @@ class Creator::SubticketsController < ApplicationController
 
   # def reporte
   # end
-  
+  def destroy
+   subticket = Subticket.find(params[:id])
+   subticket.delete_at = Time.now
+   subticket.save
+   @subtickets = Subticket.where(user_id: current_user.id, delete_at: nil)
+   render :index
+  end
   def new
     ticket_id = Ticket.find(params[:code]).id
     @subticket = Subticket.new
