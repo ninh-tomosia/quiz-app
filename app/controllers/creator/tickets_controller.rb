@@ -107,15 +107,52 @@ class Creator::TicketsController < ApplicationController
         i = item.index("?")
       end
       ques = item.slice(0, i + 1)
-      ans  = item.slice(i + 2, item.length)
-
-      ans_data = ans.split("\n")
+      ans = item.slice(i + 2, item.length).strip
+      ans_ques_data = {}
+      i = 0
+      ans.each_line do |s|
+        s = s.strip
+        if s.slice(0) == "A"
+          ans_ques_data[i] = s
+        else
+          if s.slice(0) == "B"
+            ans_ques_data[i]  = s
+          else
+            if s.slice(0) == "C"
+              ans_ques_data[i]  = s
+            else
+              if s.slice(0) == "D"
+                ans_ques_data[i]  = s
+              else
+                if s.slice(0) == "1"
+                  ans_ques_data[i]  = s
+                else
+                  if s.slice(0) == "2"
+                    ans_ques_data[i]  = s
+                  else
+                    if s.slice(0) == "3"
+                      ans_ques_data[i]  = s
+                    else
+                      if s.slice(0) == "4"
+                        ans_ques_data[i]  = s
+                      else
+                        ans_ques_data[i - 1] = ans_ques_data[i - 1].to_s + " " + s
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        i += 1
+      end
       ans_option = []
       ans_correct = []
-      ans_data.each do |ans|
-        ans_option.push(ans.delete('!T').slice(3, ans.delete('!T').length).strip)
-        if ans.index("!T") != nil
-          ans_correct.push(ans.delete("!T").slice(3,  ans.delete('!T').length).strip)
+      ans_ques_data.each do |key, value|
+        ans_option.push(value.slice(2, value.length).delete('!T./):').strip)
+        if value.index("!T") != nil
+          ans_correct.push(value.slice(2, value.length).delete("!T./):").strip)
         end
       end
       array_data[index][:question] = ques
