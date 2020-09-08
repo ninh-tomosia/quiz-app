@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   end
 
   scope module: 'guest' do
-    concern :paginatable do
-      get '(page/:page)', action: :index, on: :collection, as: ''
-    end
+    # concern :paginatable do
+    #   get '(page/:page)', action: :index, on: :collection, as: ''
+    # end
     root '/guest/home#index'
-    resources :home, concerns: :paginatable
+    resources :home #, concerns: :paginatable
     resources :users
+    resources :example
+    get "example/exam", to: "example#exam/:id"
   end
 
   scope module: 'creator' do

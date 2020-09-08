@@ -12,7 +12,7 @@
         </div>
         <div class="show-infor-ticket">
             <h3>
-              <%= Ticket.find(@subtickets.first.ticket_id).name_ticket %>
+              <%= Ticket.find(@subtickets.first.ticket_id).name_ticket if @subtickets.first != nil %>
             </h3>
           
           <table class="table-show">

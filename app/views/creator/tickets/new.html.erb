@@ -9,6 +9,7 @@
         <div class="form-login form-custom-edit">
           <%= form_for( @ticket, multipart: true ) do |f| %>
             <h2>New ticket</h2>
+            
             <div class="form-group">
               <%= f.label :category %>
               <%= collection_select :ticket, :category_id, Category.all.where(delete_at: nil), :id, :name_category, prompt: "-- Please select category --" %>
@@ -16,7 +17,7 @@
 
             <div class="form-group">
               <%= f.label :name_ticket %>
-              <%= f.text_field :name_ticket, class: "form-control", placeholder: "Enter your name ticket" %>
+              <%= f.text_field :name_ticket, class: "form-control", placeholder: "Enter your name ticket", required: true %>
             </div>
 
             <div class="form-group">
@@ -27,7 +28,7 @@
             <div class="form-group">
               <%= f.label "Time quiz (minutes)" %>
               <label><i>(min: 15 minutes -> max: 300 minutes)</i></label>
-              <%= f.number_field :time_quiz, min: 15, max: 300, value: 15, class: "form-control", placeholder: "Enter your time quiz" %>
+              <%= f.number_field :time_quiz, min: 15, max: 300, value: 15, class: "form-control", placeholder: "Enter your time quiz", required: true %>
             </div>
             <div class="form-group">
               <%= f.label "Start date time competition" %>
@@ -41,7 +42,7 @@
 
             <div class="form-group">
               <%= f.label :add_file %>
-              <%= f.file_field :file, accept: "text/plain" %>
+              <%= f.file_field :file, accept: "text/plain", required: true %>
             </div>
 
             <div class="options">

@@ -65,3 +65,5 @@ gem 'stripe'
 gem 'kaminari'       # gíup phân trang
 gem 'ransack'     # tạo form tìm kiếm
 gem 'bootstrap-kaminari-views' # giao diện đẹp cho phân trang
+gem "pagy"
+gem "jquery-countdown-rails"

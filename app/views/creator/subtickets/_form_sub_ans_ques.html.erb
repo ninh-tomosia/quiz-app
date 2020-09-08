@@ -7,15 +7,4 @@
     </div>
   </div>
 </div>
-<% answers = Question.find(question.id).answers 
-    answers.each do |item|
-      ((item.option_value.delete('[]"').split(',')).shuffle).each_with_index do |value, index|
-%>
-        <div class="form-group"> 
-          <%= (index + 1).to_s %>)
-          <%= value %>
-        </div>
-<% 
-      end
-    end 
-%>
+<%= render partial: "form_ans", collection: Question.find(question.id).answers.shuffle, as: "answer" %>

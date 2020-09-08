@@ -1,0 +1,83 @@
+<div class="container">
+  <!-- Navigation -->
+  <!--<%= render partial: "layouts/menu" %> -->
+
+  <!-- Main -->
+  <div class="content">
+    <div class="ticket-group">
+      <h2><%= Ticket.find(@questions.first.ticket_id).name_ticket if @questions.first != nil %></h2>
+      <div class="infor-ticket-example-ques-ans">
+        <div class="count-question">
+          <span id="count-item">1</span> / <span><%= @questions.count %></span>
+        </div>
+        <div class="time-ticket">
+          <input type="text" id="time-exam" value="<%= Ticket.find(@questions.first.ticket_id).time_quiz %>" hidden >
+          <b><i class="far fa-clock"></i></b> <span id="count"></span>
+        </div>
+      </div>
+      <div class="ans-ques-group">
+        <div class="ticket-question ticket-question-cs">
+          <p class="question"><i class="fas fa-star"></i> Question <span id="question-index">1</span>:</p>
+        </div>
+        <%= render partial: "form_exam", collection: @questions, as: "question" %>
+      </div>
+      <div class="pagination-ticket">
+        <a id="prev" onclick="plusSlides(-1)">Prev</a>
+        <a id="next" onclick="plusSlides(1)">Next</a>
+        <button id="btn-submit" type="submit" name="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<!--<%= render partial: "layouts/footer" %>-->
+<script>
+  var count = document.getElementById('time-exam').value * 1000 * 60 + 2000
+  var date = Date.parse(new Date()) + count;
+  var interval = setInterval(function(){
+    var now = new Date()
+    var countdown = date - now;
+    var hours = Math.floor((countdown % (1000 *60 * 60 * 24))/(1000 * 60 * 60)) ;
+    var minutes = Math.floor((countdown % (1000 * 60 * 60))/(1000 * 60));
+    var seconds = Math.floor((countdown % (1000 * 60))/1000);
+    
+    // count--;
+    if (countdown < 0){
+      clearInterval(interval);
+    }else{
+      document.getElementById('count').innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+    }
+  }, 1000);
+
+  // show answer question
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    document.getElementById('count-item').innerHTML = n;
+    document.getElementById('question-index').innerHTML = n;
+    if (n >= slides.length) {
+      document.getElementById('next').style.display = "none";
+      document.getElementById('btn-submit').style.display = "block";
+    }else{
+      if (n == 1) {
+        document.getElementById('prev').style.display = "none";
+        // document.getElementById('next').style.display = "block";
+      }else{
+        document.getElementById('prev').style.display = "block";
+        document.getElementById('next').style.display = "block";
+        document.getElementById('btn-submit').style.display = "none";
+      }
+    } 
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[slideIndex-1].style.display = "block";  
+  }
+</script>

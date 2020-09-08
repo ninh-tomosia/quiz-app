@@ -508,3 +508,188 @@ $select-focus-color: green;
   display: flex;
   justify-content: space-evenly;
 }
+
+// show ticket
+.show-ticket-infor{
+  flex: 1 0 80%;
+  padding: 10px 20px;
+}
+.row-ticket-show {
+  display: flex;
+  border-top: .5px solid #aaa;
+  border-bottom: .5px solid #aaa;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.row-ticket-show .item-ticket{
+  line-height: 30px;
+  flex: 1 0 70%;
+}
+.row-ticket-show .item-ticket a{
+  line-height: 40px;
+}
+.row-ticket-show .hone-btn-ticket{
+  flex: 1 0 30%;
+}
+
+// example
+.intro-example{
+  width: 450px;
+  margin: 150px auto;
+  padding: 30px 20px;
+  background: #EEE;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #000;
+}
+.intro-example h4{
+  text-align: center;
+  font-size: 30px;
+  color: rgb(5, 4, 71);
+}
+.intro-example .infor-ticket-exam{
+  width: 100%;
+  padding: 10px 20px;
+}
+.intro-example .infor-ticket-exam span{
+  line-height: 30px;
+}
+.intro-example .infor-ticket-exam .row-exam{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+.infor-ticket-exam .row-exam p{
+  text-align: center;
+  margin: 0;
+  line-height: 30px;
+}
+
+// Ticket example
+.ticket-group{
+  background: rgb(247, 244, 220);
+  width: 800px;
+  margin: 50px auto 0;
+  position: relative;
+  padding: 20px 50px;
+  box-shadow: 0 0 20px 0 rgb(44, 44, 44) ;
+  border-radius: 10px;
+}
+.ticket-group h2{
+  text-align: center;
+  padding: 20px 0px;
+}
+.ticket-question{
+  width: 100%;
+  margin-bottom: 15px;
+}
+.ticket-question .question{
+  font-weight: 500;
+  padding-bottom: 4px;
+  margin: 0;
+}
+.ticket-question .question i{
+  color: #bbb;
+  opacity: .5;
+}
+.ticket-question .ques-value{
+  border: .5px solid #CCC;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.ticket-answer {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.ticket-answer-item{
+  width: 100%;
+  padding: 2px 0px;
+  display: flex;
+  cursor: pointer;
+  line-height: 40px;
+  border: .5px solid #CCC;
+  margin: 4px 0;
+  border-radius: 2px;
+  
+}
+.ticket-answer-item:hover{
+  background: #EEE;
+}
+.ticket-answer-item input{
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  flex-direction: column;
+  align-self: center;
+  flex: 1 0 5%;
+  line-height: 30px;
+}
+.ticket-answer-item label {
+  flex: 1 0 95%;
+  margin: 0;
+  cursor: pointer;
+  line-height: 30px;
+}
+.ticket-answer-item input:hover{
+  cursor: pointer;
+}
+.pagination-ticket{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+.page-item {
+  margin: 0 100px;
+}
+.infor-ticket-example-ques-ans{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background: rgb(226, 223, 223);
+  border-radius: 4px;
+}
+.group-ans-ques{
+  position: relative;
+}
+.ans-ques-group{
+  display: block;
+  position: relative;
+  // height: 270px;
+  width: 100%;
+}
+.mySlides {display: none}
+#next, #prev{
+  border: .5px solid #aaa;
+  border-radius: 4px;
+  background: #DDD;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#next:hover, #prev:hover{
+  background: #BBB;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 100000s;
+  animation-name: fade;
+  animation-duration: 100000s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+#btn-submit{
+  margin-bottom: 20px;
+  display: none;
+}
+.ticket-question-cs{
+  margin-bottom: 0;
+}

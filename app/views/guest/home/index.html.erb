@@ -9,11 +9,6 @@
     </div>
     <div class="row" >
       <%= render partial:  "list_category_item", collection: @categories, as: "category" %>
-      <%
-=begin%>
- <%= paginate: @categories %> 
-<%
-=end%>
     </div>
   </div>
 </div>

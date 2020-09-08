@@ -1,0 +1,11 @@
+<div class="mySlides fade group-ans-ques">
+  <div class="ticket-question">
+    <p class="question ques-value"><span><% question.question.split("\n").each do |line| %>
+      <%= line %>
+      <br />
+    <% end %></span></p>
+  </div>
+  <div class="ticket-answer">
+    <%= render partial: "form_ans", collection: Question.find(question.id).answers.shuffle, as: "answer" %>
+  </div>
+</div>
