@@ -648,6 +648,22 @@ $select-focus-color: green;
   background: rgb(226, 223, 223);
   border-radius: 4px;
 }
+.infor-ticket-example-ques-ans .count-question{
+  flex: 1 0 7%;
+}
+.infor-ticket-example-ques-ans .time-progress-bar{
+  flex-direction: column;
+  align-self: center;
+  flex: 1 0 80%;
+  padding-right: 4px;
+}
+.infor-ticket-example-ques-ans .progress .progress-bar{
+  width: 100%;
+}
+.infor-ticket-example-ques-ans .time-ticket{
+  padding-left: 4px;
+  flex: 1 0 13%;
+}
 .group-ans-ques{
   position: relative;
 }

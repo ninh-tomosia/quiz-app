@@ -1,6 +1,4 @@
 <div class="container">
-  <!-- Navigation -->
-  <!--<%= render partial: "layouts/menu" %> -->
 
   <!-- Main -->
   <div class="content">
@@ -10,11 +8,18 @@
         <div class="count-question">
           <span id="count-item">1</span> / <span><%= @questions.count %></span>
         </div>
+        <div class="time-progress-bar">
+          <div class="progress">
+            <div id="time-bar-ticket" class="progress-bar" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
         <div class="time-ticket">
           <input type="text" id="time-exam" value="<%= Ticket.find(@questions.first.ticket_id).time_quiz %>" hidden >
           <b><i class="far fa-clock"></i></b> <span id="count"></span>
         </div>
       </div>
+
+      
       <div class="ans-ques-group">
         <div class="ticket-question ticket-question-cs">
           <p class="question"><i class="fas fa-star"></i> Question <span id="question-index">1</span>:</p>
@@ -29,11 +34,15 @@
     </div>
   </div>
 </div>
-<!-- Footer -->
-<!--<%= render partial: "layouts/footer" %>-->
+
 <script>
+
   var count = document.getElementById('time-exam').value * 1000 * 60 + 2000
   var date = Date.parse(new Date()) + count;
+  var width = 100;
+  var progressbar = document.getElementById('time-bar-ticket');
+  var width_sec = document.getElementById('time-exam').value;
+
   var interval = setInterval(function(){
     var now = new Date()
     var countdown = date - now;
@@ -45,7 +54,20 @@
     if (countdown < 0){
       clearInterval(interval);
     }else{
-      document.getElementById('count').innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+      if (hours < 10){hours = '0' + hours;}
+      if (minutes < 10){minutes = "0" + minutes;}
+      if (seconds < 10){seconds = "0" + seconds;}
+      width -= 100 / (60 * width_sec);
+      progressbar.style.width = width + "%";
+      if (hours == 0 && minutes < 10 && minutes > 5){
+        progressbar.style.background = "#FF6600";
+      }else{
+        if (hours == 0 && minutes < 5 && minutes > 0){progressbar.style.background = "#FF0000";}
+        else{
+          if(hours == 0 && minutes == 0 && seconds == 0){progressbar.style.width = "0%";}
+        }
+      }
+      document.getElementById('count').innerHTML = hours + ":" + minutes + ":" + seconds;
     }
   }, 1000);
 

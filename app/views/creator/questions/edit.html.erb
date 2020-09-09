@@ -16,11 +16,6 @@
               <%= f.text_field :question, class: "form-control", placeholder: "Enter your question" %>
             </div>
 
-            <div class="form-group">
-              <%= f.label :answer %>
-              <%= f.text_area :answer, rows: 5, class: "form-control" %>
-            </div>    
-
             <div class="options">
               <%= link_to  "Back", :back, class: "btn btn-dark" %>
               <%= f.submit "Update question", class: "btn btn-primary" %>

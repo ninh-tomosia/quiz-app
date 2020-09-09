@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :home #, concerns: :paginatable
     resources :users
     resources :example
-    get "example/exam", to: "example#exam/:id"
+    # put "example/exam", to: "example#exam/:id"
+    resource  :histories
   end
 
   scope module: 'creator' do
