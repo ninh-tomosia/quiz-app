@@ -1,0 +1,16 @@
+<div class="container">
+  <!-- Navigation -->
+  <%= render partial: "layouts/menu" %>
+
+  <!-- Main -->
+  <div class="content">
+    <div class="banner">
+      <%= image_tag( 'banner', width: "100%") %>
+    </div>
+    <div class="row" >
+      <%= render partial:  "list_category_item", collection: @categories, as: "category" %>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<%= render partial: "layouts/footer" %>

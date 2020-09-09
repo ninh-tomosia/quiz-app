@@ -1,0 +1,19 @@
+<tr>
+  
+  <td>
+    <%= category.name_category %>
+  </td>
+
+  <td>
+    <%= image_tag (category.image.url(:thumb) if category.image?), width: "100px" %>
+  </td>
+    
+  <td>
+    <%= category.delete_at %>
+  </td>
+
+  <td>
+    <%= link_to  "Edit", edit_category_path(category) %> | 
+    <%= link_to  "Delete", category_path(category), method: :delete, data: { confirm: "Are you sure?" } %>
+  </td>
+</tr>

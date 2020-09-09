@@ -1,0 +1,38 @@
+<div class="group-item-history">
+  <div class="title-history">
+    <h5>
+    <%= history.name_ticket %>
+    </h5>
+  </div>
+  <div class="content-history">
+    <div class="row-content-history">
+      <% 
+        user_ticket = UserTicket.all.where(ticket_id: history.id)
+        sum = 0.0
+        time = 0.0
+        user_ticket.each do |line|
+          sum += line.total_score
+          time += line.time_quiz
+        end
+      %>
+      <h6>
+        <span>Participant: </span>
+        <%= user_ticket.count %>
+        <small>users</small>
+      </h6>
+
+      <h6>
+        <span>Correct: </span>
+        <%= (sum * 100)/(user_ticket.count) ? user_ticket.count : 0 %>
+        <small>%</small>
+      </h6>
+        
+      <h6>
+        <span>Times: </span>
+        <%= (time)/(user_ticket.count) ? user_ticket.count : 0 %>
+        <small>min</small>
+      </h6>
+
+    </div>
+  </div>
+</div>

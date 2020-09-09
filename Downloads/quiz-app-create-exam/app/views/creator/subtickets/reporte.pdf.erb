@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta charset ="UTF-8">
+</head>
+<body>
+<h2> Đề kiểm tra 1 tiết </h2>
+<% @questions.each do |sub|%>
+    <tr>
+    <td><%= sub.question %></td>
+  
+    <br/>
+    </tr>
+<%end%>
+</body>
+</html>
+
+

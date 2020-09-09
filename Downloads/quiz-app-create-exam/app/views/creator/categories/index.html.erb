@@ -1,0 +1,31 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      <div class="show-infor-user">
+        <div class="show-user-btn">
+          <%= link_to  "Add category", new_category_path, class: "btn btn-outline-primary" %>
+        </div>
+        <div class="show-infor">
+          <table class="table-show">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Deleted at</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "list_category", collection: @categories, as: "category"  %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>

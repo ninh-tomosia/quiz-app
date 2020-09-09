@@ -1,0 +1,30 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      <div class="show-infor-user">
+        <div class="form-login form-custom-edit">
+
+          <h2>Edit Question</h2>
+          <%= form_for(:question , method: :put ) do |f| %>
+            
+            <div class="form-group">
+              <%= f.label :question %>
+              <%= f.text_field :question, class: "form-control", placeholder: "Enter your question" %>
+            </div>
+
+            <div class="options">
+              <%= link_to  "Back", :back, class: "btn btn-dark" %>
+              <%= f.submit "Update question", class: "btn btn-primary" %>
+            </div>
+          
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>
