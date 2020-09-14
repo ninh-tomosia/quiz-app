@@ -1,0 +1,40 @@
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      
+      <div class="show-infor-user">
+        <div class="form-group">
+          <%= link_to  "Back", :back, class: "btn btn-dark" %>
+        </div>
+        <div class="ticket-show-ans-ques">
+
+          <% @subticket.each do |item|   
+              
+          %> 
+            <div class="form-group">
+              <div class="answer-row">
+                <div class="option-value-ans">
+                  <label>Question: 
+                    <%= Question.find(item[0]).question %>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <% item[1].each do |ans| %>
+              <div class="form-group"> 
+                <%= Answer.find(ans).option_value %>
+              </div>
+            <% end %>  
+
+          <%  end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>

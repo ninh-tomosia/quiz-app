@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- Navigation -->
+  <!--<%= render partial: "layouts/menu" %> -->
+
+  <!-- Main -->
+  <div class="content">
+    <div class="intro-example">
+      <h4>
+        <%= @ticket.name_ticket %>
+      </h4>
+      <div class="infor-ticket-exam">
+        <div class="row-exam">
+          <span>
+          <b>Times:</b> <%= @ticket.time_quiz %>min
+          </span>
+          <span>
+          <b>Questions:</b> <%= @ticket.questions.count %>
+          </span>
+        </div>
+        <div class="row-exam">
+          <p>Click <b>"Start"</b> to start the test or click <b>"Back"</b> to exit</p>
+        </div>
+        <div class="row-exam">
+          <%= link_to "Back", :back, class: "btn btn-dark", data: { confirm: "Are you definitely want to exit?" } %>
+          <%= link_to  "Start", exam_path(@ticket), class: "btn btn-primary", data: { confirm: "Are you sure you want to take this test?" }  %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<!--<%= render partial: "layouts/footer" %>-->

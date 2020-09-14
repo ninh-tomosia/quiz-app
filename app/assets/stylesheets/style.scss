@@ -1,0 +1,720 @@
+body, html{
+  background: #DDD;
+}
+.navbar{
+  position: sticky;
+}
+.head-none-value{
+  height: 55px;
+}
+.content{
+  width: 100%;
+  padding: 20px;
+  min-height: 570px;
+}
+.banner{
+  padding-bottom: 20px;
+}
+.item{
+  width: 24%;
+  margin: 5px;
+  border: .5px solid rgb(171, 172, 171);
+  display: block;
+  background: rgb(255, 252, 214);
+  cursor: pointer;
+}
+.item .img-item{
+
+  width: 100%;
+  max-height: 200px;
+}
+
+.rate-navbar{
+  width: 20.2%;
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
+
+.rate-navbar ul li{
+  list-style: none;
+  text-align: right;
+  color: #000;
+}
+.rate-navbar ul li label{
+  margin: 4px 8px;
+  padding: 4px 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.rate-navbar .dropdown-menu{
+  width: 265px;
+  margin-left: -235px;
+  height: 227px;
+  margin-top: 385px;
+  opacity: .7;
+  padding-top: 50px;
+}
+.rate-navbar .dropdown-menu a{
+  color: rgb(255, 81, 0);
+  font-size: 16px;
+  text-align: center;
+}
+.rate-navbar .dropdown-menu a:hover{
+  font-size: 18px;
+}
+
+
+.item .title-ticket{
+  width: 100%;
+  min-height: 30px;
+  display: block;
+  padding: 5px 10px;
+}
+.item .rate-ticket{
+  margin-bottom: 10px;
+
+}
+.item .rate-ticket .line-ticket{
+  height: 2px;
+  background: rgb(0, 183, 255);
+  width: 100%;
+}
+.item .rate-ticket .rate-item-ticket{
+  line-height: 30px;
+  display: flex;
+  // padding: 2px 4px;
+  justify-content: space-evenly;
+}
+.item .rate-ticket ul{
+  margin: 0;
+}
+.item .rate-ticket ul li{
+  display: inline;
+  list-style: none;
+  color: rgb(255, 187, 0);
+  line-height: 40px;
+}
+.item .rate-ticket span{
+  font-size: 14px;
+  line-height: 40px;
+}
+.item .rate-ticket .rate-ticket-text{
+  text-align: right;
+  padding: 0 8px;
+}
+
+.link-ticket{
+  color: #000;
+}
+.link-ticket:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+
+/* footer */
+.footer{
+  width: 100%;
+  background: #AAA;
+  padding: 0;
+  margin: 0;
+}
+.footer .coppy {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Row ticket */
+.row-count-all {
+  width: 100%;
+  border-bottom: .5px solid #AAA;
+  margin-bottom: 25px;
+}
+.row-count-all p{
+  padding: 0;
+  margin: 0;
+}
+.row-ticket{
+  width: 50%;
+  display: flex;
+  border-bottom: .5px solid #AAA;
+  padding: 10px;
+}
+.row-img-ticket{
+  align-self: center;
+  width:100px;
+}
+.row-link-ticket{
+  margin-left: 10px;
+  width: 100%;
+  height: 55px;
+}
+.btn-ounline-ticket{
+  background: none;
+  border: .5px solid rgb(255, 0, 0);
+  color: rgb(255, 0, 0);
+}
+.btn-ounline-ticket:hover{
+  background: rgb(255, 0, 0);
+  color: #fff;
+  border: .5px solid rgb(0, 19, 1);
+}
+
+// form login
+.form-login{
+  width: 400px;
+  margin: 0 auto;
+}
+.form-login h2{
+  text-align: center;
+  color: rgb(2, 9, 75);
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.form-login .actions{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// css error
+#error_explanation h6, li{
+  color: red; 
+}
+#msg-errors{
+  width: 100%;
+  text-align: center;
+}
+#msg-errors .notice, .alert{
+  color: red;
+}
+// current users
+.link-current-user{
+  padding: 0px 10px;
+  color: blue;
+  cursor: pointer;
+}
+// show user information
+.user-information {
+  display: flex;
+}
+.user-information .menu-user{
+  flex: 1 0 20%;
+  min-height: 530px;
+}
+.user-information .show-infor-user{
+  flex: 1 0 80%;
+  padding: 10px 20px;
+  background: #CCC;
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+.show-infor-user .show-user-btn{
+  flex: 1 0 30%;
+  padding: 4px;
+  // display: flex;
+  // justify-content: space-evenly;
+}
+.show-infor-user .show-infor{
+  flex: 1 0 70%;
+}
+.show-group-infor{
+  width: 100%;
+  padding: 4px 0;
+}
+.show-group-infor img{
+  margin-bottom: 25px;
+}
+.show-group-infor label, span{
+  margin: 0;
+  padding: 0;
+  line-height: 24px;  
+}
+.show-group-infor label{
+  width: 10%;
+  font-weight: 600;
+}
+.show-group-infor span{
+  width: 90%;
+}
+.show-infor-user .form-edit-user{
+  width: 100%;
+}
+.form-group label{
+  width: 100%;
+}
+.form-group .title-check-box{
+  width: auto;
+}
+.form-group .title-check-box:hover{
+  cursor: pointer;
+}
+.form-custom-edit{
+  width: 500px;
+}
+.row-btn-edit{
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+}
+.row-btn-edit .title-btn-edit{
+  width: auto;
+  line-height: 38px;
+}
+
+// upload file
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #1AA059;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 4px dashed #1FB264;
+  position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #1FB264;
+  border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #15824B;
+  padding: 60px 0;
+  font-size: 20px;
+}
+
+.file-upload-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.remove-image {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+// user link
+.user-infor-link{
+  display: flex;
+  padding-left: 20px; 
+}
+.user-infor-link img:hover{
+  cursor: pointer;
+}
+.user-infor-link img{
+  border-radius: 50%;
+}
+.user-infor-link li{
+  line-height: 50px;
+}
+// show category
+// table
+
+.table-show{
+  width: 100%;
+}
+.table-show td, th{
+  padding: 4px 8px;
+}
+.table-show img{
+  width: 50px;
+}
+#ticket_category_id{
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  color: rgb(90, 88, 88);
+}
+
+$select-border-color: #ccc;
+$select-focus-color: green;
+ 
+#ticket_category_id {
+ 
+    cursor: pointer;
+    /* styling */
+    background-color: white;
+    border: 1px solid $select-border-color;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+ 
+    /* reset */
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+ 
+    background-image: linear-gradient(45deg, transparent 50%, $select-border-color 50%),
+    linear-gradient(135deg, $select-border-color 50%, transparent 50%),
+    linear-gradient(to right, $select-border-color, $select-border-color);
+    background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+ 
+    /* Very imp: hide arrow in IE */
+    &::-ms-expand {
+      display: none;
+    }
+ 
+    &:-moz-focusring {
+      color: transparent;
+      text-shadow: none;
+    }
+ 
+    &:active {
+      background-image: linear-gradient(45deg, $select-focus-color 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, $select-focus-color 50%), linear-gradient(to right, $select-focus-color, $select-focus-color);
+      background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, calc(100% - 2.5em) 0.5em;
+      background-size: 5px 5px, 5px 5px, 1px 1.5em;
+      background-repeat: no-repeat;
+      border-color: $select-focus-color;
+      outline: 0;
+    }
+  }
+
+// ticket show
+.show-infor-user .show-infor-ticket{
+  flex: 1 0 90%;
+}
+.show-infor-user .show-ticket-btn{
+  flex: 1 0 10%;
+  padding: 0 20px;
+}
+.ticket-show-ans-ques{
+  width: 100%;
+  height: 550px;
+  overflow: scroll;
+}
+.ticket-show-ans-ques label{
+  font-weight: 700;
+}
+.answer-row {
+  display: flex;
+}
+.option-value-ans{
+  flex: 1 0 80%;
+}
+.link-ans{
+  flex: 1 0 20%;
+}
+.font-size-12{
+  font-size: 12px;
+}
+
+// history
+.group-item-history{
+  width: 100%;
+  padding: 8px 16px;
+  // border-bottom: .5px solid #AAA;
+  margin-bottom: 20px;
+}
+.group-item-history .title-history{
+  width: 100%;
+  text-align: center;
+  border-bottom: .5px solid #AAA;
+  padding: 8px 16px;
+}
+.group-item-history .content-history{
+  width: 100%;
+  margin-top: 10px;
+  border-bottom: .5px solid #AAA;
+}
+.group-item-history .content-history .row-content-history{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+// show ticket
+.show-ticket-infor{
+  flex: 1 0 80%;
+  padding: 10px 20px;
+}
+.row-ticket-show {
+  display: flex;
+  border-top: .5px solid #aaa;
+  border-bottom: .5px solid #aaa;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.row-ticket-show .item-ticket{
+  line-height: 30px;
+  flex: 1 0 70%;
+}
+.row-ticket-show .item-ticket a{
+  line-height: 40px;
+}
+.row-ticket-show .hone-btn-ticket{
+  flex: 1 0 30%;
+}
+
+// example
+.intro-example{
+  width: 450px;
+  margin: 150px auto;
+  padding: 30px 20px;
+  background: #EEE;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #000;
+}
+.intro-example h4{
+  text-align: center;
+  font-size: 30px;
+  color: rgb(5, 4, 71);
+}
+.intro-example .infor-ticket-exam{
+  width: 100%;
+  padding: 10px 20px;
+}
+.intro-example .infor-ticket-exam span{
+  line-height: 30px;
+}
+.intro-example .infor-ticket-exam .row-exam{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+.infor-ticket-exam .row-exam p{
+  text-align: center;
+  margin: 0;
+  line-height: 30px;
+}
+
+// Ticket example
+.ticket-group{
+  background: rgb(247, 244, 220);
+  width: 800px;
+  margin: 50px auto 0;
+  position: relative;
+  padding: 20px 50px;
+  box-shadow: 0 0 20px 0 rgb(44, 44, 44) ;
+  border-radius: 10px;
+}
+.ticket-group h2{
+  text-align: center;
+  padding: 20px 0px;
+}
+.ticket-question{
+  width: 100%;
+  margin-bottom: 15px;
+}
+.ticket-question .question{
+  font-weight: 500;
+  padding-bottom: 4px;
+  margin: 0;
+}
+.ticket-question .question i{
+  color: #bbb;
+  opacity: .5;
+}
+.ticket-question .ques-value{
+  border: .5px solid #CCC;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.ticket-answer {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.ticket-answer-item{
+  width: 100%;
+  padding: 2px 0px;
+  display: flex;
+  cursor: pointer;
+  line-height: 40px;
+  border: .5px solid #CCC;
+  margin: 4px 0;
+  border-radius: 2px;
+  
+}
+.ticket-answer-item:hover{
+  background: #EEE;
+}
+.ticket-answer-item input{
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  flex-direction: column;
+  align-self: center;
+  flex: 1 0 5%;
+  line-height: 30px;
+}
+.ticket-answer-item label {
+  flex: 1 0 95%;
+  margin: 0;
+  cursor: pointer;
+  line-height: 30px;
+}
+.ticket-answer-item input:hover{
+  cursor: pointer;
+}
+.pagination-ticket{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+.page-item {
+  margin: 0 100px;
+}
+.infor-ticket-example-ques-ans{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 5px 10px;
+  background: rgb(226, 223, 223);
+  border-radius: 4px;
+}
+.infor-ticket-example-ques-ans .count-question{
+  flex: 1 0 7%;
+}
+.infor-ticket-example-ques-ans .time-progress-bar{
+  flex-direction: column;
+  align-self: center;
+  flex: 1 0 80%;
+  padding-right: 4px;
+}
+.infor-ticket-example-ques-ans .progress .progress-bar{
+  width: 100%;
+}
+.infor-ticket-example-ques-ans .time-ticket{
+  padding-left: 4px;
+  flex: 1 0 13%;
+}
+.group-ans-ques{
+  position: relative;
+}
+.ans-ques-group{
+  display: block;
+  position: relative;
+  // height: 270px;
+  width: 100%;
+}
+.mySlides {display: none}
+#next, #prev{
+  border: .5px solid #aaa;
+  border-radius: 4px;
+  background: #DDD;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+#next:hover, #prev:hover{
+  background: #BBB;
+}
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 100000s;
+  animation-name: fade;
+  animation-duration: 100000s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 1} 
+  to {opacity: 1}
+}
+#btn-submit{
+  margin-bottom: 20px;
+  display: none;
+}
+.ticket-question-cs{
+  margin-bottom: 0;
+}
+.marquee-exam{
+   color:red;
+}
+.button-exam{
+  margin-top:50px;
+  margin-left:400px;
+}

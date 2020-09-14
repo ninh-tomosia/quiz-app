@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="head-none-value"></div>
+  <div class="content">
+    <div class="form-login">
+      <h2>Forgot your password?</h2>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <br>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email.."%>
+        </div>
+
+        <div class="actions">
+          <div class="form-group">
+            <br>
+            <%= f.submit "Reset password", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+      <div class="form-group">
+        Do you already have an account? <%= link_to  "Sign in", signin_path %>
+        <br>       
+        Do not have an account? <%= link_to  "Sign up", new_user_registration_path %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>
