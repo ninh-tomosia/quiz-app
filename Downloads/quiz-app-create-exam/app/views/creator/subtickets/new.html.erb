@@ -12,7 +12,7 @@
             <%= f.text_field :ticket_id, hidden: true %>
             <%= f.text_field :user_id, hidden: true %>
             <div class="form-group">
-              <%= f.label :number_of_subticket %>
+            <%= f.label :number_of_subticket %>
               <label><i>(Max: 10 sub ticket)</i></label>
               <%= f.number_field :subticket_code, max: 10, min: 0,  class: "form-control", placeholder: "Enter the number of subticket you want to create" %>
             </div>

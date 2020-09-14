@@ -1,9 +1,15 @@
 <div class="row-ticket-show">
-  
-  <div class="item-ticket">
-    <%= link_to ticket.name_ticket, example_index_path(:code => ticket.id), data: { confirm: "Are you sure example?" } %>
-  </div>
-  <div class="home-btn-ticket">
-    <%= link_to  "Exam", example_index_path(:code => ticket.id), class: "btn btn-danger", data: { confirm: "Are you sure example?" } %>
-  </div>
+<div class="item-ticket">
+<%= link_to ticket.name_ticket, example_index_path(:code => ticket.id), data: { confirm: "Are you sure example?" } %>
 </div>
+<div >
+<%= link_to  "Practice", example_index_path(:code => ticket.id), class: "btn btn-danger", data: { confirm: "Are you sure practice?" } %>
+</div>
+</div>
+
+
+
+<div class = "button-exam">
+        <%= link_to  "EXAM", exam_index_path, class: "btn btn-success", data: { confirm: "Are you sure practice?" } %> 
+ </div>
+

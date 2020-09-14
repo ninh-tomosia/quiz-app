@@ -3,11 +3,43 @@
   <div class="content">
     <div class=user-information>
       <div class="menu-user">
+      <% if current_user.user_type.empty? %>
         <%= render  "layouts/user-menu" %>
+      <% else %>
+        <%= render  "layouts/user-menu" %>
+      <% end %>
       </div>
       <div class="show-infor-user">
         <div class="show-user-btn">
           <%= link_to  "Edit", edit_user_registration_path, class: "btn btn-outline-primary" %>
+          <br /><br><br>
+          
+          <div class="stripe">
+            <% if current_user.user_type.empty? %>
+              <p>
+                You want to upgrade creator?
+              </p>
+              <%= form_tag charges_path do %>
+                <article>
+                  <% if flash[:error].present? %>
+                    <div id="error_explanation">
+                      <p><%= flash[:error] %></p>
+                    </div>
+                  <% end %>
+                  <label class="amount">
+                    <span>Amount: $5.00</span>
+                  </label>
+                </article>
+              
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                        data-description="A month's subscription"
+                        data-amount="500"
+                        data-locale="auto"></script>
+              <% end %>
+            <% end %>
+          </div>
+          
         </div>
         <div class="show-infor">
           <div class="show-group-infor">

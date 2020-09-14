@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+// show user information
+.user-information {
+  display: flex;
+}
+.user-information .menu-user{
+  flex: 1 0 20%;
+  min-height: 530px;
+}
+.user-information .show-infor-user{
+  flex: 1 0 80%;
+  padding: 10px 20px;
+  background: #CCC;
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+.show-infor-user .show-user-btn{
+  flex: 1 0 30%;
+  padding: 4px;
+  // display: flex;
+  // justify-content: space-evenly;
+}
+.show-infor-user .show-infor{
+  flex: 1 0 70%;
+}
+.show-group-infor{
+  width: 100%;
+  padding: 4px 0;
+}
+.show-group-infor img{
+  margin-bottom: 25px;
+}
+.show-group-infor label, span{
+  margin: 0;
+  padding: 0;
+  line-height: 24px;  
+}
+.show-group-infor label{
+  width: 10%;
+  font-weight: 600;
+}
+.show-group-infor span{
+  width: 90%;
+}
+.show-infor-user .form-edit-user{
+  width: 100%;
+}
+.form-group label{
+  width: 100%;
+}
+.form-group .title-check-box{
+  width: auto;
+}
+.form-group .title-check-box:hover{
+  cursor: pointer;
+}
+.form-custom-edit{
+  width: 500px;
+}
+.row-btn-edit{
+  width: 100%;
+  display: flex;
+  padding: 10px 0;
+}
+.row-btn-edit .title-btn-edit{
+  width: auto;
+  line-height: 38px;
+}
+</style>
+
+<%= render  "layouts/footer" %>
+<div class="container">
+<%= render  "layouts/menu" %>
+  <div class="content">
+    <div class=user-information>
+      <div class="menu-user">
+      <% if current_user.user_type.empty? %>
+        <%= render  "layouts/user-menu" %>
+      <% else %>
+        <%= render  "layouts/user-menu" %>
+      <% end %>
+      </div>
+      <div class="show-infor-user">
+        <div class="show-user-btn">
+          
+        </div>
+        <div class="show-infor">
+            <h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render  "layouts/footer" %>
+
+

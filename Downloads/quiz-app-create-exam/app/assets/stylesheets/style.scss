@@ -24,7 +24,9 @@ body, html{
   cursor: pointer;
 }
 .item .img-item{
+
   width: 100%;
+  max-height: 200px;
 }
 
 .rate-navbar{
@@ -708,4 +710,11 @@ $select-focus-color: green;
 }
 .ticket-question-cs{
   margin-bottom: 0;
+}
+.marquee-exam{
+   color:red;
+}
+.button-exam{
+  margin-top:50px;
+  margin-left:400px;
 }

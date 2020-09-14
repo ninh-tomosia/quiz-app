@@ -3,17 +3,19 @@ class Creator::SubticketsController < ApplicationController
 
   def index
     #  @subtickets = Ticket.find(params[:code]).subtickets
+    @tickets  = Ticket.all
+    @subtickets = Subticket.all
+    @questions = Question.all 
     
-     @subtickets = Subticket.all
-      @questions = Question.all
-      respond_to do |format|
-        format.html
-        format.json
-        begin 
-        format.pdf {render template: 'creator/subtickets/reporte', pdf: 'Reporte'}
-        rescue Exception => e
-        end 
-      end
+     respond_to do |format|
+      format.html
+      format.json
+      begin 
+      format.pdf {render template: 'creator/subtickets/reporte', pdf: 'Reporte'}
+      rescue Exception => e0
+      end 
+    end
+      
     end
   
   def new
@@ -28,6 +30,7 @@ class Creator::SubticketsController < ApplicationController
     sub_ticket  = Subticket.find(params[:id])
     tickets = Ticket.find(sub_ticket[:ticket_id]).questions
     @subtickets = random_question(tickets)
+
   end
   def destroy
     subticket = Subticket.find(params[:id])
@@ -41,6 +44,7 @@ class Creator::SubticketsController < ApplicationController
   def create
     for i in 0..(sub_params[:subticket_code].to_i) do
       break if i >= sub_params[:subticket_code].to_i
+      binding.pry
       code = random_sub_code
       subticket = Subticket.new(sub_params)
       subticket.subticket_code = code

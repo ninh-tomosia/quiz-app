@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :home #, concerns: :paginatable
     resources :users
     resources :example
+    resources :exam
     # put "example/exam", to: "example#exam/:id"
     resource  :histories
   end
@@ -27,5 +28,6 @@ Rails.application.routes.draw do
     resources :subtickets
     resources :history
   end
+  resources :charges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

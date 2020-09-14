@@ -6,13 +6,19 @@
 </head>
 <body>
 <h2> Đề kiểm tra 1 tiết </h2>
-<% @questions.each do |sub|%>
+<% @tickets.each do |tick| %>
     <tr>
-    <td><%= sub.question %></td>
-  
-    <br/>
+        <td><%= tick.name_ticket %></td>
     </tr>
-<%end%>
+    <%end%>
+
+    # <% @questions.each do |sub|%>
+    #     <tr>
+    #     <td><%= sub.question %></td>
+      
+    #     <br/>
+    #     </tr>
+    # <%end%>
 </body>
 </html>
 

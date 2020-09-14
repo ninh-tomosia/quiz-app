@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_015933) do
     t.string "phone", default: ""
     t.string "email", default: "", null: false
     t.string "image", default: ""
-    t.string "type", default: ""
+    t.string "user_type", default: ""
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
