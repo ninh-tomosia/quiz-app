@@ -1,32 +1,34 @@
 <div class="container">
   <!-- Navigation -->
-  <!--<%= render partial: "layouts/menu" %> -->
+  <%= render partial: "layouts/menu" %>
 
-  <!-- Main -->
-  <div class="content">
-    <div class="intro-example">
-      <h4>
-        <%= @ticket.name_ticket %>
-      </h4>
-      <div class="infor-ticket-exam">
-        <div class="row-exam">
-          <span>
-          <b>Times:</b> <%= @ticket.time_quiz %>min
-          </span>
-          <span>
-          <b>Questions:</b> <%= @ticket.questions.count %>
-          </span>
-        </div>
-        <div class="row-exam">
-          <p>Click <b>"Start"</b> to start the test or click <b>"Back"</b> to exit</p>
-        </div>
-        <div class="row-exam">
-          <%= link_to "Back", :back, class: "btn btn-dark", data: { confirm: "Are you definitely want to exit?" } %>
-          <%= link_to  "Start", exam_path(@ticket), class: "btn btn-primary", data: { confirm: "Are you sure you want to take this test?" }  %>
-        </div>
-      </div>
-    </div>
+ <!-- Main -->
+<div class ="list-exam">
+
+<% @categories.each do |category| %>
+  <div>
+    <%= category.name_category %>
   </div>
-</div>
+  <div>
+    <% category.tickets.where.not(date_start: nil,date_finish: nil,code_quiz: nil).each do |ticket| %>
+      <div class="row-ticket-show">
+      <div class="item-ticket">
+     
+      <%= link_to ticket.name_ticket, new_exam_path, data: { confirm: "Are you sure exam?" } %>
+      </div>
+      <div>
+      <%= link_to  "Exam", new_exam_path , class: "btn btn-danger", data: { confirm: "Are you sure exame?" } %>
+      </div>
+      </div>
+      
+      
+      
+      
+      
+    <%end%>
+    </div>
+  <%end%>
+
+</div>  
 <!-- Footer -->
-<!--<%= render partial: "layouts/footer" %>-->
+<%= render partial: "layouts/footer" %>

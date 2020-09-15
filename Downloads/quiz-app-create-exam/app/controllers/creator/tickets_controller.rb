@@ -11,24 +11,24 @@ class Creator::TicketsController < ApplicationController
 
   def create
     # get_questions_from_file_text(get_file[:file])
-    # binding.pry
+     
     begin  
       ticket = Ticket.new(ticket_params)
       ticket.user_id = current_user.id
-      # binding.pry
+      
       if ticket.save
         if get_file[:file]
           data = read_file(get_file[:file])
-          # binding.pry
+      
           data.each do |item|
             ques        = item[:question]
             answers     = item[:answer]
             question    = Question.new #(:question ques, :answer ans_correct, :ticket_id ticket.id)
             question.question  = ques
             question.ticket_id = ticket.id
-            # binding.pry
+           
             if question.save
-              # binding.pry
+              
               answers.each do |value|
                 answer = Answer.new #(:option_value answers, :question_id question.id)
                 answer.option_value = value.split("!!!T").join(",")
@@ -93,6 +93,7 @@ class Creator::TicketsController < ApplicationController
 
   def read_file(file)
     data = ""
+    
 
     File.foreach(file).with_index do |line, i|
         next if line == "\n"
@@ -157,7 +158,7 @@ class Creator::TicketsController < ApplicationController
                         j+=1
                       else
                         ans_ques_data[j - 1] = ans_ques_data[j - 1].to_s + " " + s
-                        j -= 1
+                        j-= 1
                       end
                     end
                   end
@@ -179,6 +180,7 @@ class Creator::TicketsController < ApplicationController
       array_data[index][:answer]   = ans_option
       index += 1
     end
+   
     array_data
   end
 

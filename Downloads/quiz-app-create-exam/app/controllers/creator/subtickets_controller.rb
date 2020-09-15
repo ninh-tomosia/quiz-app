@@ -12,7 +12,7 @@ class Creator::SubticketsController < ApplicationController
       format.json
       begin 
       format.pdf {render template: 'creator/subtickets/reporte', pdf: 'Reporte'}
-      rescue Exception => e0
+      rescue Exception => e
       end 
     end
       
@@ -44,7 +44,6 @@ class Creator::SubticketsController < ApplicationController
   def create
     for i in 0..(sub_params[:subticket_code].to_i) do
       break if i >= sub_params[:subticket_code].to_i
-      binding.pry
       code = random_sub_code
       subticket = Subticket.new(sub_params)
       subticket.subticket_code = code

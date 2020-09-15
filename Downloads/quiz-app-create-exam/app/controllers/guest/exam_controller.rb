@@ -4,9 +4,12 @@ class Guest::ExamController < ApplicationController
   
     respond_to :html, :json, :js 
       def index
-      @ticket = Ticket.find(params[:code]).user_ticket.last
+      @categories = Category.all
+      @tickets = Ticket.all.where.not(date_start: nil,date_finish: nil,code_quiz: nil)
       end
-    
+      def create
+        @tickets = Ticket.all.where.not(date_start: nil,date_finish: nil,code_quiz: nil).code_quiz
+      end 
     def show
       us_ticket = UserTicket.new
       us_ticket.user_id = current_user.id

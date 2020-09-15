@@ -7,18 +7,17 @@
       </div>
       <div class="show-infor-user">
         <div class="form-login form-custom-edit">
-        
-            <h2>New subticket</h2>
-           
+          <%= form_for(Ticket.where.not(date_start: nil,date_finish: nil,code_quiz: nil)) do |f| %>
+            <h2>Nhập mã code </h2>
             <div class="form-group">
-            <input><%= f.label :number_of_subticket %></input>
-              <label><i>(Max: 10 sub ticket)</i></label>
-              <%= f.number_field :subticket_code, max: 10, min: 0,  class: "form-control", placeholder: "Enter the number of subticket you want to create" %>
+            <input type="text" id="fname" name="fname">
+            <%= f.label :code_quiz %>
+              <%= f.number_field :code_quiz,  class: "form-control", placeholder: "Please enter the code " %>
             </div>
 
             <div class="options">
               <%= link_to  "Back", :back, class: "btn btn-dark" %>
-              <%= f.submit "Create subticket", class: "btn btn-primary" %>
+              <%= f.submit "Next", class: "btn btn-primary" %>
             </div>
           
           <% end %>
