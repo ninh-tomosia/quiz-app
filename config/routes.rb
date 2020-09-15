@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root '/guest/home#index'
     get "exam/intro", to: "exam#intro"
     get "exam/check_code", to:  "exam#check_code"
+    put "exam/answer", to: "exam#answer"
     resources :home #, concerns: :paginatable
     resources :users
     resources :example

@@ -74,4 +74,31 @@ class Guest::ExamController < ApplicationController
     end
   end
 
+  def answer
+    if session[:user_ticket] != nil
+      ans = Answer.find(params[:id])
+      historys = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id, answer_id: params[:id]).first
+      if historys == nil
+        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id).all
+        histories.each do |history|
+          history.update_columns(checked: false)
+        end
+        binding.pry
+        his = History.new
+        his.user_ticket_id = session[:user_ticket]
+        his.question_id = ans.question_id
+        his.answer_id = params[:id]
+        his.checked = true
+        his.save
+        
+      else
+        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id).all
+        histories.each do |history|
+          history.update_columns(checked: false)
+        end
+        historys.update_columns(checked: true)
+      end
+    end
+  end
+
 end
