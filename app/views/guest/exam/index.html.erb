@@ -1,0 +1,32 @@
+<div class="container">
+  <!-- Navigation -->
+  <%= render partial: "layouts/menu" %>
+
+ <!-- Main -->
+<div class ="list-exam">
+  <div id="msg-errors">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% @categories.each do |category|
+      tickets = category.tickets.where.not(date_start: nil,date_finish: nil,code_quiz: nil)
+      unless tickets.first.nil?
+  %>
+    <div class="group-example">
+      <h5><%= category.name_category %></h5>
+      <% tickets.each do |ticket| %>
+        <div class="row-ticket-show">
+          <div class="item-ticket">
+            <%= link_to "<i class=\"fa fa-hand-point-right\"></i>".html_safe + ticket.name_ticket, exam_check_code_path(code: ticket.id), data: { confirm: "Are you sure exam?" } %>
+          </div>
+          <div>
+            <%= link_to  "Exam", exam_check_code_path(code: ticket.id) , class: "btn btn-danger", data: { confirm: "Are you sure exame?" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <%  end  end %>
+
+</div>  
+<!-- Footer -->
+<%= render partial: "layouts/footer" %>

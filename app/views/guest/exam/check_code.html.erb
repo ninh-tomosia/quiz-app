@@ -1,0 +1,21 @@
+<div class="form-check-code">
+  <h5>
+    To start the exam you need to enter the code for this exam
+  </h5>    
+    <div id="msg-errors">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+  <%= form_with url: {controller: "exam", action: "create"}, remote: true do |f| %>
+
+    <%= f.text_field :code, value: @ticket.id, hidden: true %>
+    <div class="form-group">
+      <%= f.label "Please, Enter your code quiz!" %>
+      <%= f.text_field :code_quiz, required: true, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="actions">
+      <%= link_to  :Back, exam_index_path, class: "btn btn-dark"%>
+      <%= f.submit "Submit", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<div class="ticket-answer-item">
+  <%= check_box_tag answer.id, answer.id, false, :data => {:remote => true, :url => url_for( :action => 'update', controller: 'example', :id => answer.id ), :method => :put}, class: 'check-ticket' %>
+  <!--<input class="check-ticket" type="checkbox" name="value-ticket" value="<%= answer.id %>" id="<%= answer.id %>">-->
+  <label for="<%= answer.id %>"><%= answer.option_value %></label>
+</div>
