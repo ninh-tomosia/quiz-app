@@ -1,4 +1,4 @@
-<div class="container">
+
 <%= render  "layouts/menu" %>
   <div class="content">
     <div class=user-information>
@@ -8,7 +8,6 @@
       <div class="show-infor-user">
         <div class="show-group-infor">
           <div class="form-login form-custom-edit">
-            <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
               <%= render "users/shared/error_messages", resource: resource %>
@@ -84,5 +83,5 @@
       </div>
     </div>
   </div>
-</div>
+
 <%= render  "layouts/footer" %>

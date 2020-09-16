@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_015933) do
     t.integer "user_id"
     t.integer "ticket_id"
     t.float "total_score", default: 0.0
-    t.datetime "time_complete"
+    t.integer "time_complete"
     t.datetime "delete_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -34,14 +34,21 @@
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <div class="user-infor-link">
-          <% if current_user.image? %>
-            <%= image_tag  current_user.image.url(:thumb), width: "50px" %>
-          <% else %>
-            <%= image_tag  "none-avt.png", width: "100px" %>
-          <% end %>
-          <li class="nav-item link-current-user">
-            <%= link_to current_user.name, user_path(current_user) %> >
-            <%= link_to "Logout", signout_path, {method: :delete} %>
+          
+          <li class="nav-item dropdown link-current-user">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.image? %>
+                <%= image_tag  current_user.image.url(:thumb), width: "50px" %>
+              <% else %>
+                <%= image_tag  "none-avt.png", width: "100px" %>
+              <% end %>
+              <%= current_user.name %>
+            </a>
+            <div class="dropdown-menu drop-menu-user" aria-labelledby="navbarDropdown">
+              <%= link_to "View profile <i class=\"fas fa-user\"></i>".html_safe, user_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Logout <i class=\"fas fa-sign-out-alt\"></i>".html_safe, signout_path, {method: :delete, class: "dropdown-item"}  %>
+            </div>
           </li>
         </div>
       <% else %>

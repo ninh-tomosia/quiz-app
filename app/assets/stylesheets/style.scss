@@ -1,46 +1,61 @@
-body,
-html {
-    background: #DDD;
-}
-
 .navbar {
     position: sticky;
+    z-index: 10000;
+}
+
+.navbar img {
+    width: 50px;
+    height: 50px;
 }
 
 .head-none-value {
     height: 55px;
 }
 
+.content-form {
+    width: 100%;
+    min-height: calc(100vh - 13vh);
+}
+
 .content {
     width: 100%;
-    padding: 20px;
-    min-height: 100%;
+    min-height: calc(100vh - 10.2vh);
 }
 
 .banner {
     padding-bottom: 20px;
+    background-image: cover;
+}
+
+.row {
+    margin: 0 20px;
 }
 
 .item {
-    width: 24%;
+    width: 19%;
     margin: 5px;
     border: .5px solid rgb(171, 172, 171);
     display: block;
-    background: rgb(255, 252, 214);
+    // background: rgb(255, 252, 214);
     cursor: pointer;
 }
 
 .item .img-item {
     width: 100%;
-    max-height: 200px;
+    position: relative;
+}
+
+.item .img-item img {
+    width: 100%;
 }
 
 .rate-navbar {
-    width: 100%;
+    width: 19%;
     display: flex;
-    margin-bottom: -21.5%;
+    position: absolute;
+    z-index: 100;
+    left: 15px;
     flex-direction: row-reverse;
-    justify-content: end;
 }
 
 .rate-navbar ul li {
@@ -52,23 +67,29 @@ html {
 .rate-navbar ul li label {
     margin: 4px 8px;
     padding: 4px 8px;
-    background: #fff;
+    // background: #fff;
     cursor: pointer;
 }
 
 .rate-navbar .dropdown-menu {
-    width: 260px;
-    margin-left: -230px;
-    height: 200px;
-    margin-top: 400px;
-    opacity: .7;
-    padding-top: 50px;
+    width: 100%;
+    margin-left: -250px;
+    // height: 200px;
+    // margin-top: 400px;
+    opacity: 1;
+    background: none;
+    padding: 50px 0px;
+    border: none;
 }
 
 .rate-navbar .dropdown-menu a {
-    color: rgb(255, 81, 0);
+    color: #fff;
     font-size: 16px;
     text-align: center;
+}
+
+.rate-navbar .dropdown-menu a:hover {
+    color: #333;
 }
 
 .rate-navbar .dropdown-menu a:hover {
@@ -137,6 +158,9 @@ html {
     background: #AAA;
     padding: 0;
     margin: 0;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
 }
 
 .footer .coppy {
@@ -196,6 +220,7 @@ html {
 }
 
 .form-login h2 {
+    margin-top: 28px;
     text-align: center;
     color: rgb(2, 9, 75);
     font-size: 26px;
@@ -238,13 +263,13 @@ li {
 
 .user-information .menu-user {
     flex: 1 0 20%;
-    min-height: 530px;
+    // min-height: 530px;
 }
 
 .user-information .show-infor-user {
     flex: 1 0 80%;
     padding: 10px 20px;
-    background: #CCC;
+    // background: #CCC;
     display: flex;
     flex-direction: row-reverse;
 }
@@ -441,6 +466,20 @@ span {
     line-height: 50px;
 }
 
+.drop-menu-user {
+    right: 0;
+    text-align: right;
+}
+
+.drop-menu-user a {
+    line-height: 30px;
+}
+
+.drop-menu-user a i {
+    color: #aaa;
+    margin: 0 5px;
+}
+
 // show category
 // table
 .table-show {
@@ -516,8 +555,13 @@ $select-focus-color: green;
 
 .ticket-show-ans-ques {
     width: 100%;
-    height: 550px;
+    height: calc(100vh - 15vh);
     overflow: scroll;
+    overflow-x: hidden;
+}
+
+.ticket-show-ans-ques::-webkit-scrollbar {
+    display: none;
 }
 
 .ticket-show-ans-ques label {
@@ -633,7 +677,7 @@ $select-focus-color: green;
 
 // Ticket example
 .ticket-group {
-    background: rgb(247, 244, 220);
+    // background: rgb(247, 244, 220);
     width: 80%;
     margin: 50px auto 0;
     position: relative;

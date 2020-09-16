@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get "exam/intro", to: "exam#intro"
     get "exam/check_code", to:  "exam#check_code"
     put "exam/answer", to: "exam#answer"
+    post "exam/handle_example", to: "exam#handle_example"
     resources :home #, concerns: :paginatable
     resources :users
     resources :example

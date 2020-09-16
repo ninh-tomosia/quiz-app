@@ -1,6 +1,6 @@
-<div class="container">
+
   <%= render  "layouts/menu" %>
-  <div class="content">
+  <div class="content-form">
     <div class="form-login">
       <h2>Log in</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -36,5 +36,5 @@
       <% end %>
     </div>
   </div>
-</div>
+
 <%= render  "layouts/footer" %>

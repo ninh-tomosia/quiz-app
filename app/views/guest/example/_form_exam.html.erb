@@ -6,6 +6,10 @@
       <% end %></span></p>
     </div>
     <div class="ticket-answer">
-      <%= render partial: "form_ans", collection: Question.find(question.id).answers.shuffle, as: "answer" %>
+      <% if question.question.index("multi choice") != nil %>
+        <%= render partial: "form_ans", collection: Question.find(question.id).answers.shuffle, as: "answer" %>
+      <% else %>
+        <%= render partial: "form_ans_radio", collection: Question.find(question.id).answers.shuffle, as: "answer" %>
+      <% end %>
     </div>
 </div>

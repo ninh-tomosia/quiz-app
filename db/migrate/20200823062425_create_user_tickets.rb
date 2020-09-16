@@ -4,7 +4,7 @@ class CreateUserTickets < ActiveRecord::Migration[6.0]
       t.integer   :user_id,       null: true,  default: ""
       t.integer   :ticket_id,     null: true,  default: ""
       t.float     :total_score,   null: true,  default: 0
-      t.timestamp :time_complete, null: true,  default: ""
+      t.integer   :time_complete, null: true,  default: ""
       t.timestamp :delete_at
 
       t.timestamps

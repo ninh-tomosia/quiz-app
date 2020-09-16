@@ -1,10 +1,10 @@
-<div class="container">
+
 <%= render  "layouts/menu" %>
-  <div class="content">
+  <div class="content-form">
     <div class=user-information>
       <div class="menu-user">
       <% if current_user.user_type.empty? %>
-        <%= render  "layouts/user-menu" %>
+        <%= render  "layouts/participant_menu" %>
       <% else %>
         <%= render  "layouts/user-menu" %>
       <% end %>
@@ -19,7 +19,7 @@
               <p>
                 You want to upgrade creator?
               </p>
-              <%= form_tag charges_path do %>
+              <%= form_tag charges_path, id: "form-payment" do %>
                 <article>
                   <% if flash[:error].present? %>
                     <div id="error_explanation">
@@ -27,15 +27,22 @@
                     </div>
                   <% end %>
                   <label class="amount">
-                    <span>Amount: $5.00</span>
+                    <span>Please! Click the button upgrade creator.</span>
                   </label>
                 </article>
-              
+                
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                         data-description="A month's subscription"
-                        data-amount="500"
-                        data-locale="auto"></script>
+                        data-amount="0"
+                        data-locale="auto">
+                </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script>
+                  $(document).ready(function(){
+                    $( "button[type = 'submit'].stripe-button-el" ).children().innerHTML = "Upgrade to creator";
+                  });
+                </script>
               <% end %>
             <% end %>
           </div>
@@ -65,5 +72,5 @@
       </div>
     </div>
   </div>
-</div>
+
 <%= render  "layouts/footer" %>
