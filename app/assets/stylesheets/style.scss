@@ -3,6 +3,11 @@
     z-index: 10000;
 }
 
+.navbar-brand {
+    width: 150px !important;
+    height: 80px !important;
+}
+
 .navbar img {
     width: 50px;
     height: 50px;
@@ -42,11 +47,25 @@
 
 .item .img-item {
     width: 100%;
+    height: 200px;
     position: relative;
 }
 
 .item .img-item img {
     width: 100%;
+    height: 200px;
+}
+
+@media (max-width: 680px) {
+    .item .img-item {
+        width: 100%;
+        height: 100px;
+        position: relative;
+    }
+    .item .img-item img {
+        width: 100%;
+        height: 100px;
+    }
 }
 
 .rate-navbar {
@@ -619,10 +638,14 @@ $select-focus-color: green;
 
 .row-ticket-show {
     display: flex;
-    border-top: .5px solid #aaa;
     border-bottom: .5px solid #aaa;
     padding: 5px 10px;
+    margin: 5px 0;
     cursor: pointer;
+}
+
+.row-ticket-show:first-child {
+    border-top: .5px solid #aaa;
 }
 
 .row-ticket-show .item-ticket {
@@ -926,4 +949,48 @@ $select-focus-color: green;
     padding: 10px 20px;
     line-height: 25px;
     margin-bottom: 5px;
+}
+
+.show-hisory-user a .row-history-user {
+    color: #000;
+}
+
+.show-hisory-user a:hover {
+    text-decoration: none !important;
+}
+
+.pass {
+    background: rgb(154, 202, 147);
+}
+
+.fail {
+    background: rgb(204, 158, 158);
+}
+
+.row-item {
+    width: 25%;
+}
+
+.pagy-nav-bar {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+}
+
+.group-his-item {
+    padding: 10px 20px;
+    border: .5px solid #aaa;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+.group-his-item .row {
+    margin: 10px 0;
+    line-height: 30px;
+    color: #aaa;
+}
+
+.group-his-item .row span {
+    line-height: 30px;
+    padding: 0 20px;
 }

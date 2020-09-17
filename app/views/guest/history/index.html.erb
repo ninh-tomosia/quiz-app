@@ -10,6 +10,9 @@
       </div>
       <div class="show-hisory-user">
         <%= render partial:  "history", collection: @histories, as: "history" %>
+        <div class="pagy-nav-bar">
+          <%= pagy_bootstrap_combo_nav_js(@pagy).html_safe %>
+        </div>
       </div>
     </div>
   </div>

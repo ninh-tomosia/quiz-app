@@ -11,6 +11,8 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
+
+    # binding.pry
     flash[:notice] = ""
     flash[:alert]  = ""
     flash[:success]= ""

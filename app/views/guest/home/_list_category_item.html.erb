@@ -1,17 +1,5 @@
 <div class="item">
-	<div class="rate-navbar">
-		<ul>
-			<li class="nav-item dropdown">
-        <label class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-ellipsis-v"></i>
-        </label>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Add wishlist</a>
-          <a class="dropdown-item" href="#">Example</a>
-        </div>
-      </li>
-		</ul>
-	</div>
+
 	<a href="<%= home_path(category) %>" class="link-ticket">
 		<div class="img-item">
 		   <%= image_tag( category.image.url(:thumb), width: "100%") %>
