@@ -1,0 +1,24 @@
+<div class="row-history-user">
+  <div class="row-item">
+    <%= link_to Ticket.find(history.ticket_id).name_ticket, "" %>
+  </div>
+  <div class="row-item">
+    <span>Score: <%= history.total_score %></span>
+  </div>
+  <% 
+    time = history.time_complete
+    hours = (time % (1000 * 60 * 60 * 24))/(1000 * 60 * 60)
+    minutes = (time % (1000 * 60 * 60))/(1000 * 60)
+    seconds = (time % (1000 * 60))/1000
+  %>
+  <div class="row-item">
+    <span>Time complete: <%= hours + ":" + minutes + ":" + seconds %></span>
+  </div>
+</div>
+<script>
+  var time = document.getElementById('time-complete-history').value;
+  var hours = Math.floor((time % (1000 *60 * 60 * 24))/(1000 * 60 * 60)) ;
+  var minutes = Math.floor((time % (1000 * 60 * 60))/(1000 * 60));
+  var seconds = Math.floor((time % (1000 * 60))/1000);
+  document.getElementById('time-his').innerHTML = hours + ':' + minutes + ':' + seconds;
+</script>

@@ -899,3 +899,31 @@ $select-focus-color: green;
         margin-bottom: -30px;
     }
 }
+
+#form-payment {
+    .stripe-button-el span::before {
+        content: 'Upgrade Creator';
+        display: block !important;
+    }
+    .stripe-button-el span {
+        content: '';
+        display: none;
+    }
+}
+
+.show-hisory-user {
+    flex: 1 0 80%;
+    padding: 10px 20px;
+}
+
+.show-hisory-user .row-history-user {
+    width: 100%;
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    border: .5px solid #aaa;
+    border-radius: 2px;
+    padding: 10px 20px;
+    line-height: 25px;
+    margin-bottom: 5px;
+}

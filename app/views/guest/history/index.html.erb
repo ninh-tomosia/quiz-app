@@ -1,0 +1,17 @@
+<%= render  "layouts/menu" %>
+  <div class="content-form">
+    <div class=user-information>
+      <div class="menu-user">
+      <% if current_user.user_type.empty? %>
+        <%= render  "layouts/participant_menu" %>
+      <% else %>
+        <%= render  "layouts/user-menu" %>
+      <% end %>
+      </div>
+      <div class="show-hisory-user">
+        <%= render partial:  "history", collection: @histories, as: "history" %>
+      </div>
+    </div>
+  </div>
+
+<%= render  "layouts/footer" %>

@@ -33,15 +33,10 @@
                 
                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                        data-description="A month's subscription"
-                        data-amount="0"
+                        data-description="Upgrade to creator!"
+                        data-amount=""
+                        data-panel-label="Upgrade"
                         data-locale="auto">
-                </script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script>
-                  $(document).ready(function(){
-                    $( "button[type = 'submit'].stripe-button-el" ).children().innerHTML = "Upgrade to creator";
-                  });
                 </script>
               <% end %>
             <% end %>

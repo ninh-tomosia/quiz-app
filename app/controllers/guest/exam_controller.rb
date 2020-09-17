@@ -102,7 +102,6 @@ class Guest::ExamController < ApplicationController
   end
 
   def handle_example
-    binding.pry
     if session[:user_ticket] != nil
       sum = 0.0
       total_score = 10.0 / params[:count].to_i
@@ -131,7 +130,6 @@ class Guest::ExamController < ApplicationController
         if a.empty?
           sum = 10
         else
-          binding.pry
           count = 0
           if a.length > 1
             for i in 0..a.length do
@@ -154,9 +152,8 @@ class Guest::ExamController < ApplicationController
       time_complete = ((params[:time_quiz].to_i * 1000 * 60 + 2000) - params[:time_comple].to_i)
 
       code.update_columns(time_complete: time_complete, total_score: sum)
-      # redirect_to :home_path
+      redirect_to paticipant_history_path
 
-      binding.pry
     end
   end
 

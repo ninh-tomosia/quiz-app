@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :users
     resources :example
     resources :exam
-    resource  :histories
+    get "paticipant/history", to: "history#index"
   end
 
   scope module: 'creator' do
@@ -29,7 +29,8 @@ Rails.application.routes.draw do
     resources :tickets
     resources :questions
     resources :subtickets
-    resources :history
+    # resources :history
+    get "creator/history", to: "history#index"
   end
   resources :charges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
