@@ -1,6 +1,6 @@
-
+<div class="container">
 <%= render  "layouts/menu_creator" %>
-  <div class="content-form">
+  <div class="content">
     <div class="user-information">
       <div class="menu-user">
         <%= render  "layouts/user-menu" %>
@@ -8,13 +8,41 @@
       
       <div class="show-infor-user">
         <div class="form-group">
-          <%= link_to  "Back", :back, class: "btn btn-dark" %>
+          <%= link_to  "Back", subtickets_path(code: @subticket.ticket_id), class: "btn btn-dark" %><br><br>
+          <%= link_to "<i class=\"fas fa-download\"></i><br> <small>Questions</small>".html_safe, creator_download_path(code: @subticket.id), class: "btn btn-outline-primary"  %> <br><br>
+          <%= link_to "<i class=\"fas fa-download\"></i><br> <small>Answers</small>".html_safe, creator_download_answer_path(code: @subticket.id), class: "btn btn-outline-primary"  %> 
         </div>
         <div class="ticket-show-ans-ques">
-          <%= render partial: "form_sub_ans_ques", collection: @subtickets, as: "question" %>
+
+          <% @subticket.sub_content.each_with_index do |item, index| %> 
+            <div class="form-group">
+              <div class="answer-row">
+                <div class="option-value-ans">
+                  <label>Question <%= index + 1 %>:
+                    <%= Question.find(item[0]).question %>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <% item[1].each_with_index do |ans, index| %>
+              <div class="form-group"> 
+                <%
+                  code_a = ""
+                  code_a = "A)" if index == 0
+                  code_a = "B)" if index == 1
+                  code_a = "C)" if index == 2
+                  code_a = "D)" if index == 3
+
+                %>
+                <%= code_a %> <%= Answer.find(ans).option_value %>
+              </div>
+            <% end %>  
+
+          <%  end %>
         </div>
       </div>
     </div>
   </div>
-
+</div>
 <%= render  "layouts/footer" %>

@@ -1,6 +1,14 @@
 class Creator::QuestionsController < ApplicationController
   before_action :authenticate_user!
-  def edit
-    @question = Question.find(params[:id])
+  def new
+    @question = Question.find(params[:code])
+  end
+  def create
+    question = Question.find(params[:question_id])
+    question.update_columns(question: params[:question])
+    question.answers.each do |ans|
+      ans.update_columns(option_value: params["#{ans.id}"])
+    end
+    redirect_to ticket_path(question.ticket_id)
   end
 end

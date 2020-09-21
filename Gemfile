@@ -71,3 +71,5 @@ gem "jquery-countdown-rails"
 gem 'wicked_pdf' 
 gem 'wkhtmltopdf-binary'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'responders'
+gem 'htmltoword'

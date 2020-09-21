@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2020_09_09_015933) do
   create_table "subtickets", force: :cascade do |t|
     t.integer "subticket_code"
     t.integer "ticket_id"
-    t.integer "user_id"
     t.json "sub_content"
+    t.integer "user_id"
     t.datetime "delete_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -10,8 +10,7 @@
   </td>
   <td> 
     <%= link_to "<i class=\"fa fa-file-alt\"></i>".html_safe, subticket_path(subticket) %> | 
-    <%= link_to "<i class=\"fa fa-trash-alt\"></i>".html_safe, subticket_path(subticket), method: :delete, data: { confirm: "Are you sure?" } %> |
-    <%= link_to "<i class=\"fas fa-download\"></i>".html_safe, subtickets_path(@subticket, format: :pdf)  %>
+    <%= link_to "<i class=\"fa fa-trash-alt\"></i>".html_safe, subticket_path(subticket), method: :delete, data: { confirm: "Are you sure?" } %> 
   </td>
  
 </tr>

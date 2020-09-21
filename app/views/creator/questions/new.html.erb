@@ -1,0 +1,36 @@
+
+<%= render  "layouts/menu_creator" %>
+  <div class="content">
+    <div class="user-information">
+      <div class="menu-user">
+        <%= render  "layouts/user-menu" %>
+      </div>
+      <div class="show-infor-user">
+        <div class="form-login form-custom-edit">
+
+          <h2>Edit Question</h2>
+          <%= form_tag creator_question_path do  %>
+            
+            <div class="form-group">
+              <%= text_field_tag "question_id", @question.id, hidden: true %>
+              <%= label_tag "Question "%>
+              <%= text_field_tag "question", @question.question, class: "form-control", placeholder: "Enter question" %>
+            </div>
+            <p>Answer:</p>
+            <% @question.answers.each do |ans| %>
+              <div class="form-group">
+                <%= text_field_tag ans.id, ans.option_value, class: "form-control", placeholder: "Enter answer"  %>
+              </div>
+            <% end %>
+            <div class="options">
+              <%= link_to  "Back", :back, class: "btn btn-dark" %>
+              <%= submit_tag "Update question", class: "btn btn-primary" %>
+            </div>
+          
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%= render  "layouts/footer" %>

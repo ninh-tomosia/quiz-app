@@ -101,6 +101,10 @@ GEM
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    htmltoword (1.1.1)
+      actionpack
+      nokogiri
+      rubyzip (>= 1.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
@@ -273,6 +277,7 @@ DEPENDENCIES
   chartkick
   devise
   dotenv-rails
+  htmltoword
   jbuilder (~> 2.7)
   jquery-countdown-rails
   kaminari
@@ -285,6 +290,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   ransack
+  responders
   sass-rails (>= 6)
   selenium-webdriver
   spring

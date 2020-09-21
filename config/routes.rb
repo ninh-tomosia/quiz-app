@@ -27,10 +27,14 @@ Rails.application.routes.draw do
   scope module: 'creator' do
     resources :categories
     resources :tickets
-    resources :questions
+    # resources :questions
+    get "creator/question/change", to: "questions#new"
+    post "creator/question", to: "questions#create"
     resources :subtickets
     # resources :history
     get "creator/history", to: "history#index"
+    get "creator/download", to: "subtickets#download", format: "docx"
+    get "creator/download-answer", to: "subtickets#download_answer", format: "docx"
   end
   resources :charges
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
