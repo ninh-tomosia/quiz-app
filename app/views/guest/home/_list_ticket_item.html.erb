@@ -1,11 +1,13 @@
+
 <div class="row-ticket-show">
-<div class="item-ticket">
-<%= link_to ticket.name_ticket, example_index_path(:code => ticket.id), data: { confirm: "Are you sure example?" } %>
+  <div class="item-ticket">
+  <%= link_to(ticket.name_ticket, example_index_path(:code => ticket.id), data: { confirm: "Are you sure example?" }) %>
+  </div>
+  <div >
+  <%= link_to  "Practice", example_index_path(:code => ticket.id), class: "btn btn-danger", data: { confirm: "Are you sure practice?" } %>
+  </div>
 </div>
-<div >
-<%= link_to  "Practice", example_index_path(:code => ticket.id), class: "btn btn-danger", data: { confirm: "Are you sure practice?" } %>
-</div>
-</div>
+
 
 
 

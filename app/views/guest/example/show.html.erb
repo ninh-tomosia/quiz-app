@@ -3,7 +3,7 @@
   <div class="content">
     <div class="ticket-group">
       <h2><%= Ticket.find(@questions.first.ticket_id).name_ticket if @questions.first != nil %></h2>
-      <%= form_tag exam_handle_example_path, method: :post do %>
+      <%= form_tag exam_handle_example_path, method: :post, onsubmit: "return stop_exam(this);", id: "form-example"  do %>
         <div class="infor-ticket-example-ques-ans">
           <div class="count-question">
             <span id="count-item">1</span> / <span><%= @questions.count %></span>
@@ -18,6 +18,10 @@
             <input name="time_quiz" id="time-exam" value=<%= Ticket.find(@questions.first.ticket_id).time_quiz %> hidden >
             <b><i class="far fa-clock"></i></b> <span id="count"></span>
             <input name="time_comple" id="time-comple" value="" hidden >
+
+            <span id="pause" class="timer-exam"><i class="fa fa-pause"></i></span>
+            <span id="resume" class="timer-exam"><i class="fa fa-play"></i></span>
+            <button id="stop" class="timer-exam"><i class="fa fa-stop"></i></button>
           </div>
         </div>      
         <div class="ans-ques-group">
@@ -34,43 +38,106 @@
       <% end %>
     </div>
   </div>
-
-
+  <% count = 0 %>
 <script>
 
-  var count = document.getElementById('time-exam').value * 1000 * 60 + 2000
+  var count = 5 * 1000;//document.getElementById('time-exam').value * 1000 * 60;
   var date = Date.parse(new Date()) + count;
   var width = 100;
   var progressbar = document.getElementById('time-bar-ticket');
   var width_sec = document.getElementById('time-exam').value;
+  var resume = document.getElementById('resume');
+  var pause = document.getElementById('pause');
+  var stop = document.getElementById('stop');
 
-  var interval = setInterval(function(){
-    var now = new Date()
-    var countdown = date - now;
-    var hours = Math.floor((countdown % (1000 *60 * 60 * 24))/(1000 * 60 * 60)) ;
-    var minutes = Math.floor((countdown % (1000 * 60 * 60))/(1000 * 60));
-    var seconds = Math.floor((countdown % (1000 * 60))/1000);
-    document.getElementById("time-comple").value = countdown;
-    // count--;
-    if (countdown < 0){
-      clearInterval(interval);
-    }else{
-      if (hours < 10){hours = '0' + hours;}
-      if (minutes < 10){minutes = "0" + minutes;}
-      if (seconds < 10){seconds = "0" + seconds;}
-      width -= 100 / (60 * width_sec);
-      progressbar.style.width = width + "%";
-      if (hours == 0 && minutes < 10 && minutes > 5){
-        progressbar.style.background = "#FF6600";
+
+  function stop_exam() {
+    return confirm("Are you sure you want to submit your assignment when you have not done it all?");
+  }
+
+
+
+  // var time_in_minutes = 70;
+  var current_time = Date.parse(new Date());
+  var deadline = new Date(current_time + count);
+
+
+  function time_remaining(endtime){
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor( (t/1000) % 60 );
+    var minutes = Math.floor( (t/1000/60) % 60 );
+    var hours = Math.floor( (t/(1000*60*60)) % 24 );
+    var days = Math.floor( t/(1000*60*60*24) );
+
+    if (hours < 10){hours = '0' + hours;}
+    if (minutes < 10){minutes = "0" + minutes;}
+    if (seconds < 10){seconds = "0" + seconds;}
+    return {'total':t, 'days':days, 'hours':hours, 'minutes':minutes, 'seconds':seconds};
+  }
+
+  var timeinterval;
+  function run_clock(endtime){
+    function update_clock(){
+      var t = time_remaining(endtime);
+      document.getElementById('count').innerHTML = t.hours + ":" + t.minutes + ":" + t.seconds;
+      if(t.total < 0){ 
+        alert('You have run out of time!');
+        document.forms["form-example"].submit();
+        clearInterval(timeinterval); 
       }else{
-        if (hours == 0 && minutes < 5 && minutes > 0){progressbar.style.background = "#FF0000";}
-        else{
-          if(hours == 0 && minutes == 0 && seconds == 0){progressbar.style.width = "0%";}
+
+        width -= 100 / (60 * width_sec);
+        progressbar.style.width = width + "%";
+        if (t.hours == 0 && t.minutes < 10 && t.minutes > 5){
+          progressbar.style.background = "#FF6600";
+        }else{
+          if (t.hours == 0 && t.minutes < 5 && t.minutes > 0){progressbar.style.background = "#FF0000";}
+          else{
+            if(t.hours == 0 && t.minutes == 0 && t.seconds == 0){
+              progressbar.style.width = "0%";
+            }
+          }
         }
       }
-      document.getElementById('count').innerHTML = hours + ":" + minutes + ":" + seconds;
     }
-  }, 1000);
+    update_clock(); // run function once at first to avoid delay
+    timeinterval = setInterval(update_clock,1000);
+  }
+  run_clock(deadline);
+
+
+  var paused = false; // is the clock paused?
+  var time_left; // time left on the clock when paused
+
+  function pause_clock(){
+    if(!paused){
+      paused = true;
+      clearInterval(timeinterval); // stop the clock
+      time_left = time_remaining(deadline).total; // preserve remaining time
+      pause.style.display = 'none';
+      resume.style.display = 'block';
+    }
+  }
+
+  function resume_clock(){
+    if(paused){
+      paused = false;
+
+      // update the deadline to preserve the amount of time remaining
+      deadline = new Date(Date.parse(new Date()) + time_left);
+      pause.style.display = 'block';
+      resume.style.display = 'none';
+      // start the clock
+      run_clock(deadline);
+    }
+  }
+
+  // handle pause and resume button clicks
+  pause.onclick = pause_clock;
+  resume.onclick = resume_clock;
+
+
+
 
   // show answer question
   var slideIndex = 1;

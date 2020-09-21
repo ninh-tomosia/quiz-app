@@ -8,6 +8,6 @@ class Guest::HomeController < ApplicationController
   end
 
   def show
-    @tickets = Category.find(params[:id]).tickets.where(delete_at: nil)
+    @tickets = Category.find(params[:id]).tickets.where(delete_at: nil, date_start: nil, date_finish: nil)
   end
 end

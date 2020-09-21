@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     # resources :questions
     get "creator/question/change", to: "questions#new"
     post "creator/question", to: "questions#create"
+    delete "creator/question", to: "questions#destroy"
     resources :subtickets
     # resources :history
     get "creator/history", to: "history#index"

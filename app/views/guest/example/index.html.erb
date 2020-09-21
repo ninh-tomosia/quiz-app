@@ -12,7 +12,7 @@
           <b>Times:</b> <%= @ticket.time_quiz %>min
           </span>
           <span>
-          <b>Questions:</b> <%= @ticket.questions.count %>
+          <b>Questions:</b> <%= @ticket.questions.where(delete_at: nil).count %>
           </span>
         </div>
         <div class="row-exam">

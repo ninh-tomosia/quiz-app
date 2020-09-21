@@ -55,7 +55,7 @@ class Creator::TicketsController < ApplicationController
   end
 
   def show
-    @tickets = Ticket.find(params[:id]).questions
+    @tickets = Ticket.find(params[:id]).questions.where(delete_at: nil)
   end
 
   def edit 

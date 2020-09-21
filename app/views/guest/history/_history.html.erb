@@ -3,10 +3,12 @@
   if history.total_score > 5.0 
   active = "pass"
   end
+  ticket = Ticket.find(history.ticket_id)
 %>
 <div class="group-his-item">
   <div class="row">
-    <% ticket = Ticket.find(history.ticket_id) %>
+    <% if ticket.code_quiz.empty?  %><span>Participant:</span>
+    <% else %><span>Exam:</span><% end %>
     <span>Question: <%= ticket.questions.count %></span> |
     <span>Times: <%= ticket.time_quiz %>min</span> 
   </div>

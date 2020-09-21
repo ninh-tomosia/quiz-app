@@ -7,8 +7,8 @@
     </div>
     <div class="link-ans">
       <%= link_to  "<i class=\"fa fa-pencil-alt\"></i>".html_safe, creator_question_change_path(code: question) %> |
-      <%= link_to  "<i class=\"fa fa-trash-alt\"></i>".html_safe, "" %>
+      <%= link_to  "<i class=\"fa fa-trash-alt\"></i>".html_safe, creator_question_path(code: question), method: :delete, data: { confirm: "Are you sure delete this question?" } %>
     </div>
   </div>
 </div>
-<%= render partial: "form_ans", collection: Question.find(question.id).answers, as: "answer" %>
+<%= render partial: "form_ans", collection: question.answers, as: "answer" %>

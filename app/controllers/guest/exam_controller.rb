@@ -12,7 +12,7 @@ class Guest::ExamController < ApplicationController
     us_ticket.ticket_id = params[:id]
     if us_ticket.save
       session[:user_ticket] = us_ticket.id
-      @questions = Ticket.find(params[:id]).questions.shuffle
+      @questions = Ticket.find(params[:id]).questions.where(delete_at: nil).shuffle
     else
       redirect_to :index
     end
@@ -46,9 +46,15 @@ class Guest::ExamController < ApplicationController
         flash[:alert] = "Time to do homework"
         redirect_to exam_index_path
       else
-        @ticket = Ticket.new
-        @ticket.id = ticket.id
-        flash[:alert] = ""
+        if ticket.user_tickets.where(user_id: current_user.id, delete_at: nil).count > 0
+          @categories = Category.where(delete_at: nil).all
+          flash[:alert] = "You have already done this post"
+          redirect_to exam_index_path
+        else
+          @ticket = Ticket.new
+          @ticket.id = ticket.id
+          flash[:alert] = ""
+        end
       end
     end
   end
@@ -92,7 +98,7 @@ class Guest::ExamController < ApplicationController
         his.save
         
       else
-        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id).all
+        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id)
         histories.each do |history|
           history.update_columns(checked: false)
         end
@@ -152,6 +158,7 @@ class Guest::ExamController < ApplicationController
       time_complete = ((params[:time_quiz].to_i * 1000 * 60 + 2000) - params[:time_comple].to_i)
 
       code.update_columns(time_complete: time_complete, total_score: sum)
+      session[:user_ticket] = nil
       redirect_to paticipant_history_path
 
     end

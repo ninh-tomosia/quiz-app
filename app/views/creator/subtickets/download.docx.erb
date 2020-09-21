@@ -2,6 +2,8 @@
 <p>Exam paper code: <%= @subticket.subticket_code %></p>
 <br>
 <br>
+<% array_code = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %>
+
 <% @subticket.sub_content.each_with_index do |item, index| %> 
   <div class="form-group">
     <div class="answer-row">
@@ -17,13 +19,9 @@
     <div class="form-group"> 
       <%
         code_a = ""
-        code_a = "A" if index == 0
-        code_a = "B" if index == 1
-        code_a = "C" if index == 2
-        code_a = "D" if index == 3
-
+        code_a = array_code[index]
       %>
-      <%= code_a %> <%= Answer.find(ans).option_value %>
+      <%= code_a + ". " %> <%= Answer.find(ans).option_value %>
     </div>
   <% end %>  
   <br>

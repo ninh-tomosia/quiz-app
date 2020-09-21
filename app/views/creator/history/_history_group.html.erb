@@ -9,10 +9,10 @@
       <% 
         user_ticket = UserTicket.all.where(ticket_id: history.id)
         sum = 0.0
-        time = 0.0
+        time = 0
         user_ticket.each do |line|
           sum += line.total_score
-        #  time += line.time_quiz
+          time += line.time_complete.to_i
         end
       %>
       <h6>
@@ -23,14 +23,28 @@
 
       <h6>
         <span>Correct: </span>
-        <%= (sum * 100)/(user_ticket.count) ? user_ticket.count : 0 %>
+        <%=
+          if user_ticket.count > 0
+            ((sum * 10)/(user_ticket.count)).round(2)
+          else
+            0
+          end
+        %>
         <small>%</small>
       </h6>
         
       <h6>
         <span>Times: </span>
-        <%= (time)/(user_ticket.count) ? user_ticket.count : 0 %>
-        <small>min</small>
+        <% time_complete = 0
+          if user_ticket.count > 0 
+            time_complete = (time)/(user_ticket.count)
+          end 
+          
+          hours = (time_complete % (1000 * 60 * 60 * 24))/(1000 * 60 * 60)
+          minutes = (time_complete % (1000 * 60 * 60))/(1000 * 60)
+          seconds = (time_complete % (1000 * 60))/1000
+        %>
+        <%= hours.to_s + ":" + minutes.to_s + ":" + seconds.to_s %>
       </h6>
 
     </div>

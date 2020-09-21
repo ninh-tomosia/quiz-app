@@ -157,14 +157,16 @@
     font-size: 14px;
     line-height: 40px;
 }
-.panigation-bar{
+
+.panigation-bar {
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 20px;
 }
-@media (max-width: 800px){
-    .item{
+
+@media (max-width: 800px) {
+    .item {
         width: 24%;
     }
 }
@@ -716,7 +718,8 @@ $select-focus-color: green;
 .ticket-group {
     // background: rgb(247, 244, 220);
     width: 80%;
-    margin: 50px auto 0;
+    height: 600px;
+    margin: 100px auto 0;
     position: relative;
     padding: 20px 50px;
     box-shadow: 0 0 20px 0 rgb(44, 44, 44);
@@ -792,9 +795,14 @@ $select-focus-color: green;
 }
 
 .pagination-ticket {
+    width: 80%;
     display: flex;
     justify-content: space-around;
     list-style: none;
+    position: absolute;
+    top: 90%;
+    left: 90%;
+    transform: translate(-100%, -50%);
 }
 
 .page-item {
@@ -828,6 +836,11 @@ $select-focus-color: green;
 .infor-ticket-example-ques-ans .time-ticket {
     padding-left: 4px;
     flex: 1 0 13%;
+    display: flex;
+}
+
+.infor-ticket-example-ques-ans .time-ticket i {
+    padding: 0 4px;
 }
 
 .group-ans-ques {
@@ -1007,4 +1020,25 @@ $select-focus-color: green;
 .group-his-item .row span {
     line-height: 30px;
     padding: 0 20px;
+}
+
+.timer-exam {
+    cursor: pointer;
+}
+
+#pause {
+    margin-left: 4px;
+}
+
+#resume {
+    margin-left: 4px;
+    display: none;
+}
+
+#stop {
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
 }
