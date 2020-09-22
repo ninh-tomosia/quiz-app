@@ -3,7 +3,7 @@
   <div class="content">
     <div class="ticket-group">
       <h2><%= Ticket.find(@questions.first.ticket_id).name_ticket if @questions.first != nil %></h2>
-      <%= form_tag exam_handle_example_path, method: :post, onsubmit: "return stop_exam(this);", id: "form-example"  do %>
+      <%= form_tag exam_handle_example_path, method: :post, onsubmit: "return stop_exam(this);", id: "myForm"  do %>
         <div class="infor-ticket-example-ques-ans">
           <div class="count-question">
             <span id="count-item">1</span> / <span><%= @questions.count %></span>
@@ -35,15 +35,17 @@
           <a id="next" onclick="plusSlides(1)">Next</a>
           <button id="btn-submit" type="submit" name="submit" class="btn btn-primary">Submit</button>
         </div>
+        <input type="text" id="location" value="<%= paticipant_history_path %>" hidden>
       <% end %>
     </div>
   </div>
-  <% count = 0 %>
+  
 <script>
 
-  var count = 5 * 1000;//document.getElementById('time-exam').value * 1000 * 60;
+  var count = 50 * 1000; //document.getElementById('time-exam').value * 1000 * 60;
   var date = Date.parse(new Date()) + count;
   var width = 100;
+  var time_complete = document.getElementById('time-comple');
   var progressbar = document.getElementById('time-bar-ticket');
   var width_sec = document.getElementById('time-exam').value;
   var resume = document.getElementById('resume');
@@ -52,9 +54,8 @@
 
 
   function stop_exam() {
-    return confirm("Are you sure you want to submit your assignment when you have not done it all?");
+    return confirm("Are you sure you want to submit your assignment when you have not done it all?"); 
   }
-
 
 
   // var time_in_minutes = 70;
@@ -81,11 +82,9 @@
       var t = time_remaining(endtime);
       document.getElementById('count').innerHTML = t.hours + ":" + t.minutes + ":" + t.seconds;
       if(t.total < 0){ 
-        alert('You have run out of time!');
-        document.forms["form-example"].submit();
         clearInterval(timeinterval); 
       }else{
-
+        time_complete.value = t.total;
         width -= 100 / (60 * width_sec);
         progressbar.style.width = width + "%";
         if (t.hours == 0 && t.minutes < 10 && t.minutes > 5){
@@ -137,6 +136,15 @@
   resume.onclick = resume_clock;
 
 
+  setTimeout(() => {
+    function formAutoSubmit () {
+      alert('Ban da het gio lam bai!');
+      var frm = document.getElementById("myForm");
+      frm.submit();
+    }
+    formAutoSubmit();
+    // window.location = document.getElementById("location").value;
+  }, count);
 
 
   // show answer question

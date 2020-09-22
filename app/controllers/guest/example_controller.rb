@@ -2,7 +2,7 @@ class Guest::ExampleController < ApplicationController
 
   before_action :authenticate_user!
 
-  respond_to :html, :json, :js 
+
 	def index
     @ticket = Ticket.find(params[:code])
   end

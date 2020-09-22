@@ -108,6 +108,7 @@ class Guest::ExamController < ApplicationController
   end
 
   def handle_example
+    # binding.pry
     if session[:user_ticket] != nil
       sum = 0.0
       total_score = 10.0 / params[:count].to_i
