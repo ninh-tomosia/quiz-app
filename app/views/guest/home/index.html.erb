@@ -11,7 +11,7 @@
       <%= render partial:  "list_category_item", collection: @categories, as: "category" %>
     </div>
     <div class="panigation-bar">
-      <%= pagy_bootstrap_combo_nav_js(@pagy).html_safe %>
+      <%= pagy_bootstrap_combo_nav_js(@pagy).html_safe if @pagy.count > 5 %>
     </div>
   </div>
 
