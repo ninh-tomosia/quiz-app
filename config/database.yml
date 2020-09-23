@@ -80,9 +80,9 @@ test:
 #
 production:
   <<: *default
-  database: quiz_app_production
-  username: quiz_app
-  password: <%= ENV['QUIZ_APP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: quiz_app
+  # password: <%= ENV['QUIZ_APP_DATABASE_PASSWORD'] %>
  
 
 
