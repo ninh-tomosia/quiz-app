@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -60,9 +60,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.perform_deliveries = true
+  # config.action_mailer.perform_deliveries = true
   # LetterOpener.configure do |config|
   #   # To overrider the location for message storage.
   #   # Default value is `tmp/letter_opener`
@@ -73,16 +73,19 @@ Rails.application.configure do
   #   config.message_template = :light
   # end
 
-  # config.action_mailer.default_url_options = {host: "localhost:3000"}
-  # config.action_mailer.perform_deliveries = true
+  config.secret_key_base = ENV["secret_key_base"]
+  config.action_mailer.default_url_options = { host: "quizonl.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"],
-      authentication: :plain,
-      enable_starttls_auto: true
+    address: "smtp.gmail.com",
+    port: 587,
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
   }
 
 end
