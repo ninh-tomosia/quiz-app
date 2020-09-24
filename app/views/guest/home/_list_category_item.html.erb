@@ -2,7 +2,7 @@
 
 	<a href="<%= home_path(category) %>" class="link-ticket">
 		<div class="img-item">
-		   <%= image_tag( category.image.url(:thumb), width: "100%") %>
+		   <%= image_tag( category.image.url(:thumb), width: "100%") if category.image? %>
 		</div>
 		<div class="title-ticket">
 			<%= category.name_category	%>
