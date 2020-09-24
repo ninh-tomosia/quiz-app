@@ -3,7 +3,7 @@
   <div class="content">
     <div class="ticket-group">
       <h2><%= Ticket.find(@questions.first.ticket_id).name_ticket if @questions.first != nil %></h2>
-      <%= form_tag exam_handle_example_path, method: :post do %>
+      <%= form_tag exam_handle_example_path, method: :post, onsubmit: "return stop_exam(this);", id: "myForm"  do %>
         <div class="infor-ticket-example-ques-ans">
           <div class="count-question">
             <span id="count-item">1</span> / <span><%= @questions.count %></span>
@@ -16,13 +16,9 @@
           </div>
           <div class="time-ticket">
             <input name="time_quiz" id="time-exam" value=<%= Ticket.find(@questions.first.ticket_id).time_quiz %> hidden >
-            <b><i class="far fa-clock"></i></b><span id="count"></span>
+            <b><i class="far fa-clock"></i></b> <span id="count"></span>
             <input name="time_comple" id="time-comple" value="" hidden >
-       
-            <button id="pause" class="timer-exam"><i class="fa fa-pause"></i></button>
-            <button id="resume" class="timer-exam"><i class="fa fa-play"></i></button>
             <button id="stop" class="timer-exam"><i class="fa fa-stop"></i></button>
-          </div>
           </div>
         </div>      
         <div class="ans-ques-group">
@@ -36,6 +32,7 @@
           <a id="next" onclick="plusSlides(1)">Next</a>
           <button id="btn-submit" type="submit" name="submit" class="btn btn-primary">Submit</button>
         </div>
+        <input type="text" id="location" value="<%= paticipant_history_path %>" hidden>
       <% end %>
     </div>
   </div>
@@ -95,36 +92,6 @@
   run_clock(deadline);
 
 
-  var paused = false; // is the clock paused?
-  var time_left; // time left on the clock when paused
-
-  function pause_clock(){
-    if(!paused){
-      paused = true;
-      clearInterval(timeinterval); // stop the clock
-      time_left = time_remaining(deadline).total; // preserve remaining time
-      pause.style.display = 'none';
-      resume.style.display = 'block';
-    }
-  }
-
-  function resume_clock(){
-    if(paused){
-      paused = false;
-
-      // update the deadline to preserve the amount of time remaining
-      deadline = new Date(Date.parse(new Date()) + time_left);
-      pause.style.display = 'block';
-      resume.style.display = 'none';
-      // start the clock
-      run_clock(deadline);
-    }
-  }
-
-  // handle pause and resume button clicks
-  document.getElementById('pause').onclick = pause_clock;
-  document.getElementById('resume').onclick = resume_clock;
-
   // show answer question
   var slideIndex = 1;
   showSlides(slideIndex);
@@ -155,10 +122,5 @@
         slides[i].style.display = "none";  
     }
     slides[slideIndex-1].style.display = "block";  
-  }
-
-  function pause(){
-    await sleep(1000000);
-    interval;
   }
 </script>
