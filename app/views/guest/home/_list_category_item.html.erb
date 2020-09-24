@@ -11,13 +11,42 @@
 	<div class="rate-ticket">
 		<div class="line-ticket"></div>
 		<div class="rate-item-ticket">
-			<span>100% Complete</span>
+			<% count = 0
+        sum = 0.0
+        i = 0
+				Ticket.where(category_id: category.id).each do |ticket|
+          us_tickets = ticket.user_tickets
+          count = us_tickets.count 
+          us_tickets.each do |us|
+            sum += us.total_score if us.total_score >= 5
+          end
+        end
+        if count > 0
+          if sum / count <= 20 
+            i = 1
+          elsif sum / count > 20 && sum / count <= 40
+            i = 2
+          elsif sum / count > 40 && sum / count <= 60
+            i = 3
+          elsif sum / count > 60 && sum / count <= 80
+            i = 4
+          else
+            i = 5
+          end
+        else
+          i = 1
+        end
+			%>
+      <span><%= if (sum * 10)/count > 0 
+        sum /= count 
+        else 
+        0
+        end
+       %>% Complete</span>
 			<ul>
+      <% for j in 1..i do %>
 				<li class="rate-item"><i class="fas fa-star"></i></li>
-				<li class="rate-item"><i class="fas fa-star"></i></li>
-				<li class="rate-item"><i class="fas fa-star"></i></li>
-				<li class="rate-item"><i class="fas fa-star"></i></li>
-				<li class="rate-item"><i class="fas fa-star"></i></li>
+        <% end %>
 			</ul>
 		</div>
 		<div class="rate-ticket-text">
