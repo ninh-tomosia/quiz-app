@@ -14,7 +14,7 @@
 			<% count = 0
         sum = 0.0
         i = 0
-				Ticket.where(category_id: category.id).each do |ticket|
+				category.tickets.each do |ticket|
           us_tickets = ticket.user_tickets
           count = us_tickets.count 
           us_tickets.each do |us|
