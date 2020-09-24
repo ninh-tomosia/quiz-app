@@ -1,0 +1,81 @@
+  <!-- Navigation -->
+<% if current_user != nil && current_user.user_type != nil %>
+  <%= render partial:  "layouts/menu_creator" %>
+<% else %>
+  <%= render partial: "layouts/menu" %>
+<% end  %>
+
+  <!-- Main -->
+  <div class="content-form">
+    <div class="help-group" style="width: 100%; padding:  50px;">
+      <div class="mySlides">
+        <h3 class="w3-center" style="margin: 50px 0;">Create ticket</h3>
+        <div class="row">
+          <div class="col-sm">
+            <p><b>1. Instructions for placing import file data.</b></p>
+            <p><b> Format file</b></p>
+            <p>- Question: <b>Begin with the letter ABCD ...</b></p>
+            <p>- Content Question: <b>Begin with the letter ABCD ...</b></p>
+            <p>- Answer: <b> Begin with the letter ABCD ...</b></p>
+            <p>- Answer <b><i>"True"</i></b>: <b> Begin with the letter ABCD ...</b></p>
+            <p><b><i>Example: </i></b></p>
+          </div>
+          <div class="col-sm">
+            <p><b>2. Steps to create a ticket.</b></p>
+            <p>- Step 1: Click <b>"Add a new ticket"</b></p>
+            <p>- Step 2: Fill out the information ticket on the form.</p>
+            <p>- Step 3: Click <b>"Create ticket".</b></p>
+          </div>
+          <div class="col-sm">
+            <p><b>3. The options of a competition.</b></p>
+            <p>- Competition code: <b>Competition activation code.</b></p>
+            <p>- Start date: <b> Time to begin the competition.</b></p>
+            <p>- Finish date: <b> Time to end the competition.</b></p>
+          </div>
+        </div>
+      </div>
+      <div class="mySlides">
+        <h3  class="w3-center" style="margin: 50px 0;">Create subticket</h3>
+        <div class="row">
+          <div class="col-sm">
+            <p><b>1. The options of a subticket.</b></p>
+            <p>- Amount of test: <b> Fill amount subticket  you want to generate.<i>(maximum is 10).</i></b></p>
+          </div>
+          <div class="col-sm">
+            <p><b>2. Steps to create a ticket.</b></p>
+            <p>- Step 1: Click <b><i class="fas fa-file"></i> in page your ticket.</b></p>
+            <p>- Step 2: Click <b>"New subtickets"</b></p>
+            <p>- Step 3: Fill out the information ticket on the form.</p>
+            <p>- Step 4: Click <b>"Create subticket".</b></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+      <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";  
+        }
+        x[slideIndex-1].style.display = "block";  
+      }
+      </script>
+  </div>
+
+<!-- Footer -->
+<%= render partial: "layouts/footer" %>

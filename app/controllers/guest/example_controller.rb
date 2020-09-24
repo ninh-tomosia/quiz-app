@@ -13,7 +13,6 @@ class Guest::ExampleController < ApplicationController
     us_ticket.ticket_id = params[:id]
     if us_ticket.save
       session[:user_ticket] = us_ticket.id
-      # binding.pry
       @questions = Ticket.find(params[:id]).questions.where(delete_at: nil).shuffle
     else
       redirect_to :index

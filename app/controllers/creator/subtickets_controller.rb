@@ -4,6 +4,10 @@ class Creator::SubticketsController < ApplicationController
 
   def index
      @subtickets = Ticket.find(params[:code]).subtickets.where(user_id: current_user.id, delete_at: nil)
+     
+     if @subtickets.empty?
+      redirect_to tickets_path
+     end
   end
   
   def new
@@ -29,7 +33,6 @@ class Creator::SubticketsController < ApplicationController
   def create
     for i in 0..(sub_params[:subticket_code].to_i) do
       break if i >= sub_params[:subticket_code].to_i
-      # binding.pry
       code = random_sub_code
       subticket = Subticket.new
       subticket.ticket_id = sub_params[:ticket_id]
@@ -48,7 +51,6 @@ class Creator::SubticketsController < ApplicationController
       subticket.sub_content = sub_content
       subticket.subticket_code = code
       subticket.save
-      # binding.pry
     end
     @subtickets = Subticket.all.where(ticket_id: sub_params[:ticket_id])
     render :index

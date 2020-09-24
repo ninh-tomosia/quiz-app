@@ -4,14 +4,12 @@ class ChargesController < ApplicationController
   
   def create
     begin
-      # Amount in cents
       @amount = 50
     
       customer = Stripe::Customer.create({
         email: params[:stripeEmail],
         source: params[:stripeToken],
       })
-    # binding.pry
       charge = Stripe::Charge.create({
         customer: customer.id,
         amount: @amount,

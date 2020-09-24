@@ -1,6 +1,5 @@
 class Creator::TicketsController < ApplicationController
   before_action :authenticate_user!
-  # shuffle
   def index
     @tickets = Ticket.where(user_id: current_user.id, delete_at: nil)
   end
@@ -10,7 +9,6 @@ class Creator::TicketsController < ApplicationController
   end
 
   def create
-    # get_questions_from_file_text(get_file[:file])
      
     begin  
       ticket = Ticket.new(ticket_params)
@@ -23,14 +21,14 @@ class Creator::TicketsController < ApplicationController
           data.each do |item|
             ques        = item[:question]
             answers     = item[:answer]
-            question    = Question.new #(:question ques, :answer ans_correct, :ticket_id ticket.id)
+            question    = Question.new 
             question.question  = ques
             question.ticket_id = ticket.id
            
             if question.save
               
               answers.each do |value|
-                answer = Answer.new #(:option_value answers, :question_id question.id)
+                answer = Answer.new 
                 answer.option_value = value.split("!!!T").join(",")
                 correct = false
                 if value.index("!!T") != nil
@@ -39,7 +37,6 @@ class Creator::TicketsController < ApplicationController
                 answer.is_correct = correct
                 answer.question_id  = question.id
                 answer.save
-                # binding.pry
               end
             end
           end

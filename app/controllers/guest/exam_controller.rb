@@ -3,7 +3,7 @@ class Guest::ExamController < ApplicationController
   respond_to :html, :json, :js 
   
   def index
-    @categories = Category.where(delete_at: nil).all
+    @categories = Category.where(delete_at: nil)
   end
 
   def show
@@ -37,17 +37,17 @@ class Guest::ExamController < ApplicationController
   def check_code
     ticket = Ticket.find(params[:code])
     if ticket.date_start.strftime("%d/%m/%Y") > DateTime.now.strftime("%d/%m/%Y")
-      @categories = Category.where(delete_at: nil).all
+      @categories = Category.where(delete_at: nil)
       flash[:alert] = "It's not time to do homework"
       redirect_to exam_index_path
     else
       if ticket.date_start.strftime("%d/%m/%Y") < DateTime.now.strftime("%d/%m/%Y") && ticket.date_finish.strftime("%d/%m/%Y") < DateTime.now.strftime("%d/%m/%Y")
-        @categories = Category.where(delete_at: nil).all
+        @categories = Category.where(delete_at: nil)
         flash[:alert] = "Time to do homework"
         redirect_to exam_index_path
       else
         if ticket.user_tickets.where(user_id: current_user.id, delete_at: nil).count > 0
-          @categories = Category.where(delete_at: nil).all
+          @categories = Category.where(delete_at: nil)
           flash[:alert] = "You have already done this post"
           redirect_to exam_index_path
         else
@@ -85,11 +85,10 @@ class Guest::ExamController < ApplicationController
       ans = Answer.find(params[:id])
       historys = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id, answer_id: params[:id]).first
       if historys == nil
-        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id).all
+        histories = History.where(user_ticket_id: session[:user_ticket], question_id: ans.question_id)
         histories.each do |history|
           history.update_columns(checked: false)
         end
-        # binding.pry
         his = History.new
         his.user_ticket_id = session[:user_ticket]
         his.question_id = ans.question_id
@@ -108,7 +107,6 @@ class Guest::ExamController < ApplicationController
   end
 
   def handle_example
-    # binding.pry
     if session[:user_ticket] != nil
       sum = 0.0
       total_score = 10.0 / params[:count].to_i
@@ -133,7 +131,6 @@ class Guest::ExamController < ApplicationController
         sum = 0
       else
         a = answer_correct - user_answer
-        # b = user_answer - answer_correct
         if a.empty?
           sum = 10
         else

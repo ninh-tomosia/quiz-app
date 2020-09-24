@@ -16,6 +16,5 @@ class Creator::QuestionsController < ApplicationController
     question = Question.find(params[:code])
     question.update_columns(delete_at: Time.now)
     redirect_to ticket_path(question.ticket_id)
-    # binding.pry
   end
 end

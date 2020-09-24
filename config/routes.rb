@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     delete "signout" => "devise/sessions#destroy"
   end
 
+  get "help", to: "help#index"
+
   scope module: 'guest' do
     # concern :paginatable do
     #   get '(page/:page)', action: :index, on: :collection, as: ''
