@@ -5,9 +5,27 @@
       <h2>Log in</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div id="msg-errors">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <% if notice != nil || alert != nil %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <% if notice != nil %>
+                <strong>Notice: </strong><span class="notice"><%= notice %></span>
+              <% end %>
+              <% if alert != nil %>
+                <strong>Alert: </strong><span class="alert"><%= alert %></span>
+              <% end %>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <% end %>
         </div>
+        <script>
+          window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+              $(this).remove(); 
+            });
+          }, 5000);
+        </script>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email..." %>

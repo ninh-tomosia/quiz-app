@@ -30,3 +30,8 @@ require("chart.js")
   
   // document.addEventListener('turbolinks:load', countdown);
   // $(document).on('page:update', countdown);
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove(); 
+    });
+  }, 5000);

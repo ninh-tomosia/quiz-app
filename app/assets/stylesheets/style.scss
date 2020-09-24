@@ -3,6 +3,11 @@
     margin: 0;
     z-index: 10000;
 }
+.close{
+    outline: none !important;
+    border: none !important;
+    background: none !important;
+}
 
 .navbar-brand {
     margin-left: 20px;

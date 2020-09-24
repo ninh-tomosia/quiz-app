@@ -3,8 +3,19 @@
     To start the exam you need to enter the code for this exam
   </h5>    
     <div id="msg-errors">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if notice != nil || alert != nil %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <% if notice != nil %>
+            <strong>Notice: </strong><span class="notice"><%= notice %></span>
+          <% end %>
+          <% if alert != nil %>
+            <strong>Alert: </strong><span class="alert"><%= alert %></span>
+          <% end %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
     </div>
   <%= form_with url: {controller: "exam", action: "create"}, remote: true do |f| %>
 
