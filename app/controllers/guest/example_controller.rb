@@ -3,7 +3,10 @@ class Guest::ExampleController < ApplicationController
   before_action :authenticate_user!
 
 
-	def index
+  def index
+    if current_user != nil
+      redirect_to user_path(current_user) unless current_user.user_type.empty?
+    end
     @ticket = Ticket.find(params[:code])
   end
   

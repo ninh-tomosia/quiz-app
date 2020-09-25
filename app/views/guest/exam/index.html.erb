@@ -29,7 +29,7 @@
         <% tickets.each do |ticket| %>
           <div class="row-ticket-show">
             <div class="item-ticket">
-              <%= link_to "<i class=\"fa fa-hand-point-right\"></i>".html_safe + ticket.name_ticket, exam_check_code_path(code: ticket.id), data: { confirm: "Are you sure exam?" } %>
+              <%= link_to "<i class=\"fa fa-hand-point-right\"></i>  ".html_safe + ticket.name_ticket, exam_check_code_path(code: ticket.id), data: { confirm: "Are you sure exam?" } %>
             </div>
             <div>
               <%= link_to  "Exam", exam_check_code_path(code: ticket.id) , class: "btn btn-danger", data: { confirm: "Are you sure exame?" } %>

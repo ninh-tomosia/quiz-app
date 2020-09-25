@@ -3,6 +3,9 @@ class Guest::ExamController < ApplicationController
   respond_to :html, :json, :js 
   
   def index
+    if current_user != nil
+      redirect_to user_path(current_user) unless current_user.user_type.empty?
+    end
     @categories = Category.where(delete_at: nil)
   end
 
