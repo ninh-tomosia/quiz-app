@@ -147,8 +147,6 @@ GEM
     orm_adapter (0.5.0)
     pagy (3.8.3)
     pg (1.2.3)
-    polyamorous (2.3.2)
-      activerecord (>= 5.2.1)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -187,11 +185,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rake (13.0.1)
-    ransack (2.3.2)
-      activerecord (>= 5.2.1)
-      activesupport (>= 5.2.1)
-      i18n
-      polyamorous (= 2.3.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -279,7 +272,6 @@ DEPENDENCIES
   pry
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
-  ransack
   responders
   sass-rails (>= 6)
   selenium-webdriver
