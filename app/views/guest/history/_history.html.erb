@@ -1,6 +1,6 @@
  <% 
   active = "fail" 
-  if history.total_score > 5.0 
+  if history.total_score > 50.0
   active = "pass"
   end
   ticket = Ticket.find(history.ticket_id)
@@ -10,7 +10,7 @@
     <% if ticket.code_quiz.empty?  %><span>Participant:</span>
     <% else %><span>Exam:</span><% end %>
     <span>Question: <%= ticket.questions.count %></span> |
-    <span>Times: <%= ticket.time_quiz %>min</span> 
+    <span>Times: <%= ticket.time_quiz %>min</span>
   </div>
   <a href="">
     <div class="row-history-user <%= active %>">
@@ -18,7 +18,7 @@
         <%= ticket.name_ticket %>
       </div>
       <div class="row-item">
-        <span>Score: <%= history.total_score %></span>
+        <span>Score: <%= history.total_score %><small>%</small></span>
       </div>
       <div class="row-item">
         <span>Date example: <%= history.created_at.strftime("%d/%m/%Y") %></span>
